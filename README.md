@@ -3,7 +3,7 @@
 ## 注意事项
 1. 用scrapy库时记得要用virtualenv或conda等创建虚拟环境
 2. 涉及正则部分可阅读[learn-regex-zh](https://github.com/cdoco/learn-regex-zh)，并借助诸如[regex101](https://regex101.com/)、[scrapy command line](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data)工具来辅助获取内容
-3. 如何将\uxxxx格式代码转换为对应的汉字：安装`jq`，并执行诸如`cat in.json | jq > out.json`代码
+3. 如何将`\uxxxx`格式代码转换为对应的汉字：安装`jq`，并执行诸如`cat in.json | jq > out.json`代码
 
 ## 爬虫目录
 ### 北京市中医药管理局
