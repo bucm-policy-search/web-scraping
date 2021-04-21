@@ -30,6 +30,7 @@ class PolicySpider(scrapy.Spider):
         page_urls = response.css('div.fanye')
 
     def detailPage(self, response):
+        urlsource = response.request.url
         title_origin = response.css('h4::text').get()
         title = re.search('\S+(?=\\n)', title_origin).group(0)
 
@@ -50,6 +51,7 @@ class PolicySpider(scrapy.Spider):
             })
 
         yield {
+            'urlsource': urlsource,
             'title': title,
             'date': date,
             'source': source,
