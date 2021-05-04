@@ -1,0 +1,326 @@
+{
+  "took": 8,
+  "errors": true,
+  "items": [
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "9FhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"index\":{}}\n{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202104/t20210402_2343247.html\",\"title\":\"关于公布北京地区2021年度国家级中医药继续教育项目的通知\",\"date\":\"2021-04-02\",\"source\":\"北京市中医药继续教育办公室\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web\"><p>各有关单位：</p><p>　　根据《关于申报2021年度国家级中医药继续教育项目的通知》（国中医药继教办发〔2020〕3号）要求，现将北京�\"[truncated 64802 bytes]; line: 1, column: 265]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "9VhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202104/t20210408_2349151.html\",\"title\":\"北京市临床药学研究所2021年政府采购意向\",\"date\":\"2021-04-08\",\"source\":\"北京市临床药学研究所\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web trs_word\"><p><span style=\"font-size: 16px; font-family: arial, helvetica, sans-serif;\">　　为便于供应商及时了解政府采购信息，根据《财政部关于开展政府采购意向公开工作的通知》（财库�\"[truncated 7464 bytes]; line: 1, column: 232]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "9lhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202104/t20210408_2349156.html\",\"title\":\"北京市中医管理局2021年政府采购意向\",\"date\":\"2021-04-08\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web trs_word\"><p><span style=\"font-size: 16px; font-family: arial, helvetica, sans-serif;\">　　为便于供应商及时了解政府采购信息，根据《财政部关于开展政府采购意向公开工作的通知》（财库〔2020〕10�\"[truncated 48934 bytes]; line: 1, column: 220]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "91hUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202104/t20210408_2349159.html\",\"title\":\"北京市中医药对外交流与技术合作中心2021年政府采购意向\",\"date\":\"2021-04-08\",\"source\":\"北京市中医药对外交流与技术合作中心\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web trs_word\"><p><span style=\"font-size: 16px; font-family: arial, helvetica, sans-serif;\">　　为便于供应商及时了解政府采购信息，根据《财政部关于开展政府采�\"[truncated 7429 bytes]; line: 1, column: 274]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "-FhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\" style=\"border-width: 1px; border-style: solid; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-image: initial; border-left-color: initial; padding: 0px 7px;\" height=\"56\"><p style=\"text-align:center;\"><span style=\"font-size: 16px; font-family: arial, helvetica, sans-serif;\"><strong><span style=\"font-size: 16px; font-family: 宋体; color: black;\">预计采购时间</span></strong><strong><span style=\"font-size: 16px; font-family: 宋体; colo\"[truncated 65036 bytes]; line: 1, column: 310]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "-VhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202104/t20210419_2361811.html\",\"title\":\"关于对“首都名中医”、“优秀名中医”、“首都中青年名中医”拟入选人员名单的公示\",\"date\":\"2021-04-19\",\"source\":\"​北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web trs_word\"><p>　　经单位推荐、形式审查、会议评审等程序，现对拟入选\"首都名中医\"(100名)、\"优秀名中医\"(55名)、\"首都中青年名中\"[truncated 5704 bytes]; line: 1, column: 291]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "-lhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202104/t20210420_2363325.html\",\"title\":\"北京市中医管理局关于开展第四届“首都国医名师”评选工作的通知\",\"date\":\"2021-04-20\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web trs_word\"><p style=\"text-align: center;\"><strong>　　京中医科字〔2021〕41号</strong></p><p>各区卫生健康委、各有关单位：<br></p><p>　　为进一步贯彻落实《北京市�\"[truncated 11632 bytes]; line: 1, column: 261]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "-1hUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('é' (code 233)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202104/t20210429_2377854.html\",\"title\":\"北京市中医管理局关于开展\"首都名中医\"、\"优秀名中医\"、\"首都中青年名中医\"学习宣传活动的通知\",\"date\":\"2021-04-29\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web\"><p style=\"text-align: center;\"><strong>　　京中医科字〔2021〕45号</strong></p><p>各有关单位：<br></p><p>　　为贯彻落实《北京市中�\"[truncated 5564 bytes]; line: 1, column: 127]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "_FhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\" style=\"border-width: 1px; border-style: solid; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-image: initial; border-left-color: initial; padding: 0px 7px;\" height=\"56\"><p style=\"text-align:center;\"><span style=\"font-size: 16px; font-family: arial, helvetica, sans-serif;\"><strong><span style=\"font-size: 16px; font-family: 宋体; color: black;\">预计采购时间</span></strong><strong><span style=\"font-size: 16px; font-family: 宋体; colo\"[truncated 65036 bytes]; line: 1, column: 218]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "_VhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\" style=\"border-width: 1px; border-style: solid; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-image: initial; border-left-color: initial; padding: 0px 7px;\" height=\"56\"><p style=\"text-align:center;\"><span style=\"font-size: 16px; font-family: arial, helvetica, sans-serif;\"><strong><span style=\"font-size: 16px; font-family: 宋体; color: black;\">预计采购时间</span></strong><strong><span style=\"font-size: 16px; font-family: 宋体; colo\"[truncated 65036 bytes]; line: 1, column: 218]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "_lhUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202101/t20210106_2199914.html\",\"title\":\"北京市中医管理局2020年度法治政府建设情况报告\",\"date\":\"2021-01-08\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web\"><p>　　北京市中医药行业坚持以习近平新时代中国特色社会主义思想为指导，深入贯彻落实党的十九大精神，深入贯彻习近平总书记对北京重要讲话精神，聚焦推进中医�\"[truncated 14961 bytes]; line: 1, column: 235]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "_1hUNnkBSU0yOlk1J9a9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202102/t20210219_2284920.html\",\"title\":\"医师资格（中医类）考试收费标准\",\"date\":\"2021-02-19\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web trs_word trs_key4format\"><div></div><p class=\"cjk\" style=\"text-align:center;text-indent: 1.16cm; margin-bottom: 0cm; line-height: 100%\"><span style=\"font-family:方正小标宋简体, 方正舒体, cursive\"><span style=\"font-size:32px\">医师�\"[truncated 10826 bytes]; line: 1, column: 216]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "AFhUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\" style=\"border-width: 1px; border-style: solid; border-top-color: windowtext; border-right-color: windowtext; border-bottom-color: windowtext; border-image: initial; border-left-color: initial; padding: 0px 7px;\" height=\"56\"><p style=\"text-align:center;\"><span style=\"font-size: 16px; font-family: arial, helvetica, sans-serif;\"><strong><span style=\"font-size: 16px; font-family: 宋体; color: black;\">预计采购时间</span></strong><strong><span style=\"font-size: 16px; font-family: 宋体; colo\"[truncated 65036 bytes]; line: 1, column: 274]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "AVhUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202103/t20210309_2303162.html\",\"title\":\"北京市中医管理局关于开展北京市第三批基层中医药学科团队基地建设情况中期检查的通知\",\"date\":\"2021-03-09\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web\"><p>　　各有关单位：</p><p>　　为更好地了解本项目研究进展情况、及时发现和解决项目执行中存在的问题、提升项目建设效果�\"[truncated 3050 bytes]; line: 1, column: 291]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "AlhUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"查及评审结束后，我局将适时组织实地抽查（具体时间地点待定）。</p><p>　　4.全部中期检查流程结束后，我局将通报检查结果，并根据实际情况开展后期管理。</p><p><strong>　　四、联系方式：</strong></p><p>　　北京中联中医药项目管理与评价中心：</p><p>　　陶有青   58650017；  顾晓静   58650015</p><p>　　北京市中医管理局科教处：</p><p>　　刘楠、王会玲  83970053  </p><p>　　�\"[truncated 33171 bytes]; line: 1, column: 297]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "A1hUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"查及评审结束后，我局将适时组织实地抽查（具体时间地点待定）。</p><p>　　4.全部中期检查流程结束后，我局将通报检查结果，并根据实际情况开展后期管理。</p><p><strong>　　四、联系方式：</strong></p><p>　　北京中联中医药项目管理与评价中心：</p><p>　　陶有青   58650017；  顾晓静   58650015</p><p>　　北京市中医管理局科教处：</p><p>　　刘楠、王会玲  83970053  </p><p>　　�\"[truncated 33171 bytes]; line: 1, column: 274]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "BFhUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202101/t20210106_2199930.html\",\"title\":\"北京市中医管理局2020年度绩效管理工作自查情况\",\"date\":\"2021-01-06\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web\"><p>　　一、总体情况</p><p>　　2020年，北京市深入贯彻落实习近平总书记关于中医药工作的重要论述、《中共中央国务院关于促进中医药传承创新发展的意见》和全国中�\"[truncated 14804 bytes]; line: 1, column: 235]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "BVhUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"查及评审结束后，我局将适时组织实地抽查（具体时间地点待定）。</p><p>　　4.全部中期检查流程结束后，我局将通报检查结果，并根据实际情况开展后期管理。</p><p><strong>　　四、联系方式：</strong></p><p>　　北京中联中医药项目管理与评价中心：</p><p>　　陶有青   58650017；  顾晓静   58650015</p><p>　　北京市中医管理局科教处：</p><p>　　刘楠、王会玲  83970053  </p><p>　　�\"[truncated 33171 bytes]; line: 1, column: 289]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "BlhUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"查及评审结束后，我局将适时组织实地抽查（具体时间地点待定）。</p><p>　　4.全部中期检查流程结束后，我局将通报检查结果，并根据实际情况开展后期管理。</p><p><strong>　　四、联系方式：</strong></p><p>　　北京中联中医药项目管理与评价中心：</p><p>　　陶有青   58650017；  顾晓静   58650015</p><p>　　北京市中医管理局科教处：</p><p>　　刘楠、王会玲  83970053  </p><p>　　�\"[truncated 33171 bytes]; line: 1, column: 277]"
+          }
+        }
+      }
+    },
+    {
+      "index": {
+        "_index": "test",
+        "_type": "_doc",
+        "_id": "B1hUNnkBSU0yOlk1J9e9",
+        "status": 400,
+        "error": {
+          "type": "mapper_parsing_exception",
+          "reason": "failed to parse",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Unexpected character ('v' (code 118)): was expecting comma to separate Object entries\n at [Source: (byte[])\"{\"urlsource\":\"http://zyj.beijing.gov.cn/sy/tzgg/202103/t20210326_2330617.html\",\"title\":\"北京市中医管理局关于做好2021年北京市中医住院医师规范化培训结业考核工作的通知\",\"date\":\"2021-03-26\",\"source\":\"北京市中医管理局\",\"article\":\"<div class=\"view TRS_UEDITOR trs_paper_default trs_web trs_word\"><p>各中医高等院校及中医住院医师规范化培训基地：</p><p>　　根据《国家中医药管理局中医师资格认证中心关于2021年度中医�\"[truncated 9205 bytes]; line: 1, column: 283]"
+          }
+        }
+      }
+    }
+  ]
+}(developEnv)

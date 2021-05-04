@@ -25,9 +25,14 @@ class PolicySpider(scrapy.Spider):
                 quote.css('div a::attr(href)').get()))
 
         for content_url in content_urls:
-            yield scrapy.Request(url=content_url, callback=self.detailPage)
+            for num in range(0, 11):
+                if num == 0:
+                    url = content_url
+                else:
+                    url = content_url + 'index_{num}.html'.format(num=num)
+                yield scrapy.Request(url=content_url, callback=self.detailPage)
 
-        page_urls = response.css('div.fanye')
+        # page_urls = response.css('div.fanye')
 
     def detailPage(self, response):
         urlsource = response.request.url
@@ -38,7 +43,7 @@ class PolicySpider(scrapy.Spider):
         date = re.search('(?<=：)\S*', date_origin).group(0)
 
         source = response.css('span.ly::text').get()
-        article = response.css('div.trs_word').get()
+        article = response.css('div.view').get()
 
         attachment = []
         ul = response.css('ul.tdbgimgdog li')
