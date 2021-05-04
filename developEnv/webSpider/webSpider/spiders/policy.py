@@ -1,5 +1,7 @@
 import scrapy
 import re
+from webSpider.items import WebspiderItem
+from scrapy.loader import ItemLoader
 
 
 class PolicySpider(scrapy.Spider):
@@ -11,35 +13,47 @@ class PolicySpider(scrapy.Spider):
 
         urls = [
             'http://zyj.beijing.gov.cn/sy/tzgg/',
-        ]
-        #   'http://zyj.beijing.gov.cn/sy/zcfg/',
-        #   'http://zyj.beijing.gov.cn/zcjd/wjjd/']
+        # ]
+          'http://zyj.beijing.gov.cn/sy/zcfg/',
+          'http://zyj.beijing.gov.cn/zcjd/wjjd/']
 
         for url in urls:
-            yield scrapy.Request(url=url, callback=self.contentPage)
-
-    def contentPage(self, response):
-        content_urls = []
-        for quote in response.css("div.oursv_b_f li"):
-            content_urls.append(response.urljoin(
-                quote.css('div a::attr(href)').get()))
-
-        for content_url in content_urls:
+            # change url depending on pages
             for num in range(0, 11):
-                if num == 0:
-                    url = content_url
-                else:
-                    url = content_url + 'index_{num}.html'.format(num=num)
-                yield scrapy.Request(url=content_url, callback=self.detailPage)
+                # eg. default catch data from 'http://zyj.beijing.gov.cn/sy/tzgg'
+                if num != 0:
+                    # eg. catch data from 'http://zyj.beijing.gov.cn/sy/tzgg/index_1.html'
+                    url = url + 'index_{num}.html'.format(num=num)
+                yield scrapy.Request(url=url, callback=self.BATCM_contentPage)
+
+    # 北京市中医药管理局（Beijing Administration of Traditional Chinese Medicine）
+    def BATCM_contentPage(self, response):
+        content_urls = []
+
+        # Check whether data exist (also check whether this page exist)
+        if bool(response.css("div.oursv_b_f li")):
+            for quote in response.css("div.oursv_b_f li"):
+                content_urls.append(response.urljoin(
+                    quote.css('div a::attr(href)').get()))
+
+            for content_url in content_urls:
+                for num in range(0, 11):
+                    if num == 0:
+                        url = content_url
+                    else:
+                        url = content_url + 'index_{num}.html'.format(num=num)
+                    yield scrapy.Request(url=content_url, callback=self.BATCM_detailPage)
 
         # page_urls = response.css('div.fanye')
 
-    def detailPage(self, response):
+    def BATCM_detailPage(self, response):
         urlsource = response.request.url
         title_origin = response.css('h4::text').get()
+        # delete "\n" and spaces in title
         title = re.search('\S+(?=\\n)', title_origin).group(0)
 
         date_origin = response.css("div.zhengwen div::text").get()
+        # change "日期：2021-04-29  来源： " to "2021-04-29"
         date = re.search('(?<=：)\S*', date_origin).group(0)
 
         source = response.css('span.ly::text').get()
