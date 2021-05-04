@@ -1,3 +1,4 @@
 developEnv/bin
 developEnv/lib
 developEnv/tutorial
+developEnv/webSpider/webSpider/spiders/__pycache__
