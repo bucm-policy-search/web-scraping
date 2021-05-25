@@ -1,7 +1,12 @@
 import scrapy
 import re
+import sys
 from webSpider.items import WebspiderItem
 from scrapy.loader import ItemLoader
+from w3lib.html import remove_tags
+
+# sys.path.append('~/search-engine/web-scraping/developEnv/webSpider/webSpider/websites')
+import BATCM
 
 
 class PolicySpider(scrapy.Spider):
@@ -53,11 +58,12 @@ class PolicySpider(scrapy.Spider):
         title = re.search('\S+(?=\\n)', title_origin).group(0)
 
         date_origin = response.css("div.zhengwen div::text").get()
-        # change "日期：2021-04-29  来源： " to "2021-04-29"
+        # change    "日期：2021-04-29  来源： "    to      "2021-04-29"
         date = re.search('(?<=：)\S*', date_origin).group(0)
 
         source = response.css('span.ly::text').get()
         article = response.css('div.view').get()
+        plaintext = re.sub(r'\s\s', ' ', remove_tags(article))
 
         attachment = []
         ul = response.css('ul.tdbgimgdog li')
@@ -75,5 +81,6 @@ class PolicySpider(scrapy.Spider):
             'date': date,
             'source': source,
             'article': article,
+            'plaintext': plaintext,
             'attachment': attachment
         }
