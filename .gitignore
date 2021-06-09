@@ -1,4 +1,6 @@
-developEnv/bin
-developEnv/lib
-developEnv/tutorial
-developEnv/webSpider/webSpider/spiders/__pycache__/
+venv/bin
+venv/lib
+venv/tutorial
+venv/webSpider/webSpider/__pycache__
+venv/webSpider/webSpider/spiders/__pycache__/
+venv/webSpider/.env

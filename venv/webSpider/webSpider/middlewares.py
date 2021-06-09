@@ -17,9 +17,11 @@ class WebspiderSpiderMiddleware:
     @classmethod
     def from_crawler(cls, crawler):
         # This method is used by Scrapy to create your spiders.
-        s = cls()
-        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
-        return s
+        # s = cls()
+        # crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
+        # return s
+        middleware = cls(crawler.settings.get('USER_AGENT'))
+        return middleware
 
     def process_spider_input(self, response, spider):
         # Called for each response that goes through the spider
