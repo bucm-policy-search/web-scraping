@@ -27,5 +27,5 @@ class ElasticSearchPipeline:
         pass
 
     def process_item(self, item, spider):
-        logging.info(item)
+        logging.info('Processing items in pipelines: {}'.format(item))
         return item

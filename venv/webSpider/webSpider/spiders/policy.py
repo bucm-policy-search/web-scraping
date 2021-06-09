@@ -28,7 +28,7 @@ class PolicySpider(scrapy.Spider):
 
         for url in urls:
             # change url depending on pages
-            for num in range(0, 20):
+            for num in range(0, 1000):
                 # eg. default catch data from 'http://zyj.beijing.gov.cn/sy/tzgg'
                 new_url = url
                 if num != 0:
@@ -57,7 +57,7 @@ class PolicySpider(scrapy.Spider):
                     quote.css('div a::attr(href)').get()))
 
             for content_url in content_urls:
-                for num in range(0, 11):
+                for num in range(0, 20):
                     url = ''
                     if num == 0:
                         url = content_url
@@ -70,11 +70,10 @@ class PolicySpider(scrapy.Spider):
         item = response.meta['item']
 
         item['urlsource'] = response.url
+        
         today = date.today()
-        # d1 = today.strftime("%Y-%m-%d")
-
-        # item['scrapyDate'] = d1
-        item['scrapyDate'] = today
+        d1 = today.strftime("%Y-%m-%d")
+        item['scrapyDate'] = d1
 
         title_origin = response.css('h4::text').get()
         # delete "\n" and spaces in title
@@ -86,10 +85,14 @@ class PolicySpider(scrapy.Spider):
 
         item['source'] = response.css('span.ly::text').get()
 
-        article = response.css('div.view').get()
+        if(response.css('div.view').get() != None):
+            article = response.css('div.view').get()
+        else:
+            article = response.css('div.TRS_Editor').get()
+            
         item['article'] = article
 
-        item['plaintext'] = re.sub(r'\s\s', ' ', remove_tags(article))
+        item['plaintext'] = re.sub(r'\s(\s)+', ' ', remove_tags(article))
 
         attachment = []
         ul = response.css('ul.tdbgimgdog li')
