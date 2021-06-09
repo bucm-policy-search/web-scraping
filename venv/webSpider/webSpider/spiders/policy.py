@@ -28,16 +28,20 @@ class PolicySpider(scrapy.Spider):
 
         for url in urls:
             # change url depending on pages
-            for num in range(0, 2):
+            for num in range(0, 20):
                 # eg. default catch data from 'http://zyj.beijing.gov.cn/sy/tzgg'
                 new_url = url
                 if num != 0:
                     # eg. catch data from 'http://zyj.beijing.gov.cn/sy/tzgg/index_1.html'
                     new_url = url + 'index_{num}.html'.format(num=num)
 
-                if requests.get(new_url).status_code == 200:
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77'
+                }
+                if requests.get(new_url, headers=headers).status_code == 200:
                     logging.debug(
-                        'the new_url in start_request to BATCM_contentPage:{}'.format(new_url))
+                        'The new_url in start_request to BATCM_contentPage: {}'.format(new_url))
+
                     yield scrapy.Request(url=new_url, callback=self.BATCM_contentPage, meta={'item': item})
                 else:
                     break

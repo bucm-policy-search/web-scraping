@@ -13,7 +13,6 @@ import os
 
 class ElasticSearchPipeline:
     def open_spider(self, spider):
-        # config = dotenv_values(".env")
         load_dotenv()
         logging.debug('print config value: %s', os.environ)
 
