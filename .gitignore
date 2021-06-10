@@ -3,4 +3,5 @@ venv/lib
 venv/tutorial
 venv/webSpider/webSpider/__pycache__
 venv/webSpider/webSpider/spiders/__pycache__/
+venv/webSpider/webSpider/spiders/websites/__pycache__
 venv/webSpider/.env
