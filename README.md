@@ -29,9 +29,9 @@
 
 截至 2021-04-19 该网站没有发现 robots.txt 文件
 
-- 通知公告（http://zyj.beijing.gov.cn/sy/tzgg/）
-- 政策法规（http://zyj.beijing.gov.cn/sy/zcfg/）
-- 政策解读（http://zyj.beijing.gov.cn/zcjd/wjjd/）
+- 通知公告（ http://zyj.beijing.gov.cn/sy/tzgg/ ）
+- 政策法规（ http://zyj.beijing.gov.cn/sy/zcfg/ ）
+- 政策解读（ http://zyj.beijing.gov.cn/zcjd/wjjd/ ）
 
 2021-05-04 用 scrapy shell 再次爬取网站时时，发现网站又进行升级，能触发 scrapy shell 防护（之前 scrapy shell 没有问题）:sob::sob:
 

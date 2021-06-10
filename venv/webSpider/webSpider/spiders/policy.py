@@ -38,7 +38,7 @@ class PolicySpider(scrapy.Spider):
                 headers = {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36 Edg/89.0.774.77'
                 }
-                if requests.get(new_url, headers=headers).status_code == 200:
+                if requests.head(new_url, headers=headers).ok:
                     logging.debug(
                         'The new_url in start_request to BATCM_contentPage: {}'.format(new_url))
 
