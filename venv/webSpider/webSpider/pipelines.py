@@ -8,8 +8,11 @@
 from itemadapter import ItemAdapter
 from elasticsearch import Elasticsearch
 from dotenv import load_dotenv
+from time import strftime
 import logging
 import os
+
+logging.basicConfig(filename='./logs/scrapy_pipelines_{}.log'.format(strftime("%Y/%m/%d-%H:%M:%S_UTC%z")), encoding='utf-8', level=logging.DEBUG)
 
 class ElasticSearchPipeline:
     def open_spider(self, spider):
@@ -27,5 +30,5 @@ class ElasticSearchPipeline:
         pass
 
     def process_item(self, item, spider):
-        logging.info('Processing items in pipelines: {}'.format(item))
+        logging.debug('Processing items in pipelines: {}'.format(item))
         return item
