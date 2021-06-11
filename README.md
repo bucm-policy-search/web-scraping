@@ -1,3 +1,7 @@
+## 创建目的
+
+促进中医药信息化发展。由于缺少政策搜索引擎，在查找中医药相关政策有时非常麻烦。故想创建一个方便中医药院校广大师生、中医药从政人员以及中医药爱好者使用的搜索引擎。
+
 ## 如何执行此仓库
 
 1. 进入本仓库对应文件夹，然后`source developEnv/bin/activate`.（退出虚拟环境用`deactivate`）
@@ -25,16 +29,38 @@
 
 ## 爬虫目录
 
-### 北京市中医药管理局
+### 国家中医药管理局（NATCM/SATCM）
 
-截至 2021-04-19 该网站没有发现 robots.txt 文件
+截至 2021-06-11 [国家中医药管理局](http://www.natcm.gov.cn/) 官网 `robots.txt` 内容为
 
-- 通知公告（ http://zyj.beijing.gov.cn/sy/tzgg/ ）
-- 政策法规（ http://zyj.beijing.gov.cn/sy/zcfg/ ）
-- 政策解读（ http://zyj.beijing.gov.cn/zcjd/wjjd/ ）
+```
+User-agent: *
 
-2021-05-04 用 scrapy shell 再次爬取网站时时，发现网站又进行升级，能触发 scrapy shell 防护（之前 scrapy shell 没有问题）:sob::sob:
+Disallow: /d/
+Disallow: /e/class/
+Disallow: /e/config/
+Disallow: /e/data/
+Disallow: /e/enews/
+Disallow: /e/update/
+```
 
-![知道创宇云防御](https://i.imgur.com/LsIQpIL.png)
+爬取内容：
 
-不过好在非常容易破解，详见常见问题
+- 通知公告 http://www.natcm.gov.cn/a/tzgg/ 
+- 工作动态 http://www.natcm.gov.cn/a/gzdt/
+- 新闻发布 http://www.natcm.gov.cn/a/bgs_xwfb/ 
+- 政策文件 http://www.satcm.gov.cn/a/zcwj/
+- 政策解读 http://www.satcm.gov.cn/a/zcjd/
+- 法律法规 http://www.satcm.gov.cn/a/fjs_flfg/
+
+对于在不同分类的相同文件，只保留一份
+
+### 北京市中医药管理局（BATCM）
+
+截至 2021-04-19 [北京市中医药管理局](http://zyj.beijing.gov.cn/sy/tzgg/) 没有发现 `robots.txt` 文件
+
+爬取内容：
+
+- 通知公告 http://zyj.beijing.gov.cn/sy/tzgg/ 
+- 政策法规 http://zyj.beijing.gov.cn/sy/zcfg/ 
+- 政策解读 http://zyj.beijing.gov.cn/zcjd/wjjd/ 

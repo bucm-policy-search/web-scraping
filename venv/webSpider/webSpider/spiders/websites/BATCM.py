@@ -10,7 +10,7 @@ from datetime import date
 
 
 class BATCM(scrapy.Spider):
-    
+
     # 北京市中医药管理局（Beijing Administration of Traditional Chinese Medicine）
     name = 'BATCM'
 
@@ -19,15 +19,20 @@ class BATCM(scrapy.Spider):
 
     def start_requests(self):
         item = ElasticSearchItem()
-        urls = [
-            'http://zyj.beijing.gov.cn/sy/tzgg/',
-        ]
-        # 'http://zyj.beijing.gov.cn/sy/zcfg/',
-        # 'http://zyj.beijing.gov.cn/zcjd/wjjd/']
+
+        urls = {
+            True: ['http://zyj.beijing.gov.cn/sy/tzgg/'],
+            False: [
+                'http://zyj.beijing.gov.cn/sy/tzgg/',
+                'http://zyj.beijing.gov.cn/sy/zcfg/',
+                'http://zyj.beijing.gov.cn/zcjd/wjjd/'
+            ]
+        }[self.mode == 'test']
 
         for url in urls:
             # change url depending on pages
-            for num in range(0, 1000):
+            for num in range(0, 10) if(self.mode == 'test') \
+                    else range(0, 1000):
                 # eg. default catch data from 'http://zyj.beijing.gov.cn/sy/tzgg'
                 new_url = url
                 if num != 0:
@@ -68,7 +73,7 @@ class BATCM(scrapy.Spider):
         item = response.meta['item']
 
         item['urlsource'] = response.url
-        
+
         today = date.today()
         d1 = today.strftime("%Y-%m-%d")
         item['scrapyDate'] = d1
@@ -83,11 +88,10 @@ class BATCM(scrapy.Spider):
 
         item['source'] = response.css('span.ly::text').get()
 
-        if(response.css('div.view').get() != None):
-            article = response.css('div.view').get()
-        else:
-            article = response.css('div.TRS_Editor').get()
-            
+        article = {
+            True: response.css('div.view').get(),
+            False: response.css('div.TRS_Editor').get()
+        }[response.css('div.view').get() != None]
         item['article'] = article
 
         item['plaintext'] = re.sub(r'\s(\s)+', ' ', remove_tags(article))
