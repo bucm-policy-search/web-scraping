@@ -13,9 +13,8 @@
 ### 单次爬虫
 
 1. 进入本仓库对应文件夹，然后`source developEnv/bin/activate`.（退出虚拟环境用`deactivate`）
-2. 如果没有安装 scrapy，请在虚拟环境内执行`pip install scrapy`
-3. 【建议但非必须】熟悉 scrapy 库（可参照[scrapy 文档](https://docs.scrapy.org/en/latest/intro/tutorial.html)），并使用[scrapy shell](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data)协助调试（记得要修改 Shell 的 User-Agent）。如`scrapy shell -s USER_AGENT='Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)' `'http://zyj.beijing.gov.cn/sy/tzgg/'
-4. 进入对应的项目文件夹中（如 developEnv/webSpider，即`scrapy.cfg`存在文件夹）`scrapy crawl policy -O result.json`开始爬虫。**注意：**默认设置会爬取三个网页的所有子网页，所以会很慢，5 分钟左右，谨慎执行。
+2. 【建议但非必须】熟悉 scrapy 库（可参照[scrapy 文档](https://docs.scrapy.org/en/latest/intro/tutorial.html)），并使用[scrapy shell](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data)协助调试（记得要修改 Shell 的 User-Agent）。如`scrapy shell -s USER_AGENT='Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)' `'http://zyj.beijing.gov.cn/sy/tzgg/'
+3. 进入对应的项目文件夹中（如 developEnv/webSpider，即`scrapy.cfg`存在文件夹）`scrapy crawl policy -O result.json`开始爬虫。**注意：**默认设置会爬取三个网页的所有子网页，所以会很慢，5 分钟左右，谨慎执行。
 
 ## 常见问题
 
