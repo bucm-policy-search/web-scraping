@@ -4,6 +4,8 @@
 
 ## 如何执行此仓库
 
+建议用`conda`或`virtualenv`创建虚拟环境。运行`pip install -r requirements.txt`安装所有依赖包
+
 ### 后台定点爬虫
 
 用pm2，代码如`pm2 start echo.py --interpreter=/path/to/venv/bin/python`
