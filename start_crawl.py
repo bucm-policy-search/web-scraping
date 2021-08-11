@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(description="Crawl Parameters")
 parser.add_argument(
     "-m",
     "--mode",
-    help=' 爬虫模式：测试模式 or 生产模式 - "test" / "develop"，默认 "develop" ',
+    help=' 爬虫模式：测试模式 or 生产模式 - "dev(development)" / "pro(production)"，默认 "dev" ',
     default="develop",
 )
 parser.add_argument(

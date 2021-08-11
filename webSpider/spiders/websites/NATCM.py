@@ -13,11 +13,14 @@ from faker import Faker
 fake = Faker(["zh_CN"])
 Faker.seed(random.randint(150, 300))
 
+##################################################################
+#                           TO BE DONE                           #
+##################################################################
 
-class BATCM(scrapy.Spider):
+class NATCM(scrapy.Spider):
 
-    # 北京市中医药管理局（Beijing Administration of Traditional Chinese Medicine）
-    name = "BATCM"
+    # 国家中医药管理局 (National Administration of Traditional Chinese Medicine)
+    name = "NATCM"
 
     page_urls = []
 
@@ -25,11 +28,14 @@ class BATCM(scrapy.Spider):
         item = ElasticSearchItem()
 
         urls = {
-            True: ["http://zyj.beijing.gov.cn/sy/tzgg/"],
+            True: ["http://www.natcm.gov.cn/a/tzgg/"],
             False: [
-                "http://zyj.beijing.gov.cn/sy/tzgg/",
-                "http://zyj.beijing.gov.cn/sy/zcfg/",
-                "http://zyj.beijing.gov.cn/zcjd/wjjd/",
+                "http://www.natcm.gov.cn/a/tzgg/",
+                "http://www.natcm.gov.cn/a/gzdt/",
+                "http://www.natcm.gov.cn/a/bgs_xwfb/",
+                "http://www.satcm.gov.cn/a/zcwj/",
+                "http://www.satcm.gov.cn/a/zcjd/",
+                "http://www.satcm.gov.cn/a/fjs_flfg/",
             ],
         }[hasattr(self, "mode") and self.mode == "test"]
 
@@ -40,11 +46,11 @@ class BATCM(scrapy.Spider):
                 if (hasattr(self, "mode") and self.mode == "test")
                 else range(0, 1000)
             ):
-                # eg. default fetch data from 'http://zyj.beijing.gov.cn/sy/tzgg'
+                # eg. default fetch data from 'http://www.natcm.gov.cn/a/tzgg/'
                 new_url = url
                 if num != 0:
-                    # eg. fetch data from 'http://zyj.beijing.gov.cn/sy/tzgg/index_1.html'
-                    new_url = url + "index_{num}.html".format(num=num)
+                    # eg. fetch data from 'http://www.natcm.gov.cn/a/tzgg/index_2.html'
+                    new_url = url + "index_{num}.html".format(num=num + 1)
 
                 if requests.head(new_url, headers={"User-Agent": fake.chrome()}).ok:
                     logging.debug(
