@@ -4,7 +4,7 @@
 
 ## 项目优点
 
-爬虫时可默认将爬虫数据导入到 Elasticsearch 中。如果检测没有连接到 Elasticsearch 或配置不正确，则忽略此选项。
+爬虫时可默认将爬虫数据导入到 Elasticsearch 中。如果检测没有连接到 Elasticsearch 或配置不正确，则不会将数据导入到 ES 中。你也可通过加`-O`参数将爬取内容导出为指定目录的`json`文件。
 
 ## 如何执行此仓库
 
@@ -24,18 +24,18 @@
 
 ### 单次爬虫
 
-1. 进入虚拟环境并启动虚拟环境：`source developEnv/bin/activate`.（退出虚拟环境用`deactivate`）
+1. 进入虚拟环境并启动虚拟环境：`source developEnv/bin/activate`（退出虚拟环境用`deactivate`）
 2. 进入对应的项目文件夹中（如 venv/webSpider，即`scrapy.cfg`存在文件夹），可执行对应 spider，如`scrapy crawl BATCM -O output/result.json`。**注意：**使用默认设置会爬取某网页 3 个子页面内包含的所有子网页，而且为了防止被反爬虫限制了爬取速度，速度较慢，预计需 5 分钟
 
 ## 常见问题
 
 ### 被创宇云防御（云 WAF 类）拦下
 
-过一两分钟可继续正常访问，注意修改 `User-Agent`. Scrapy Shell 启动时要加入相关参数，如`scrapy shell -s USER_AGENT='Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)' 'http://zyj.beijing.gov.cn/sy/tzgg/'`
+过一两分钟可继续正常访问，注意修改 `User-Agent` . Scrapy Shell 启动时要加入相关参数，如`scrapy shell -s USER_AGENT='Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)' 'http://zyj.beijing.gov.cn/sy/tzgg/'`
 
-### 如何手动批量导入爬取的数据
+### 如何手动批量导入爬取的 json 格式数据
 
-**新回答**：在用 jq 对 json 解码后，用官方[bulk api](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)（此处给的是 Node.js 版本）。**原回答废弃**原因是，对于 jq 转换成的`\"`，echo、printf 等其他输出函数在 pipe 输出时会将 json 值中的`\"`在 bulk 前就转换成`"`，从而导致输入到 elasticsearch 中出错。且暂时无解，'\\'等常见转义字符可以取消转换，但暂未见到针对`\"`解决方式的回答。
+**新回答**：在用 jq 对 json 解码后，用官方[bulk api](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)（此处给的是 Node.js 版本）。**原回答废弃**原因是，对于 jq 转换成的`\"`，echo、printf 等其他输出函数在 pipe 输出时会将 json 值中的`\"`在 bulk 前就转换成`"`，从而导致输入到 Elasticsearch 中出错。且暂时无解，'\\'等常见转义字符可以取消转换，但暂未见到针对`\"`解决方式的回答。
 
 **原回答（废弃不用）**：导入`[{},{}]`类型 Json 文件，参考[此 elasticsearch 回答](https://stackoverflow.com/questions/33340153/elasticsearch-bulk-index-json-data/33340234#33340234)使用[elastic bulk REST API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
 

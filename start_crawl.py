@@ -13,8 +13,8 @@ parser = argparse.ArgumentParser(description="Crawl Parameters")
 parser.add_argument(
     "-m",
     "--mode",
-    help=' 爬虫模式：测试模式 or 生产模式 - "dev(development)" / "pro(production)"，默认 "dev" ',
-    default="develop",
+    help=' 爬虫模式：测试模式 or 生产模式 - "dev(development)" / "prod(production)"，默认 "prod" ',
+    default="prod",
 )
 parser.add_argument(
     "-a",
@@ -36,7 +36,7 @@ def job():
     logging.basicConfig(
         format="%(asctime)s %(levelname)s:%(message)s",
         filename=f"./logs/scrapy_{current_time}.log",
-        level=logging.DEBUG,
+        level=logging.WARNING,
     )  # ISO 8601 Timestamp format
 
     process = CrawlerProcess(get_project_settings())

@@ -3,6 +3,8 @@ import re
 import sys
 import requests
 import logging
+from scrapy.utils.log import configure_logging
+from time import strftime
 from webSpider.items import ElasticSearchItem
 from scrapy.loader import ItemLoader
 from w3lib.html import remove_tags
@@ -19,26 +21,35 @@ class BATCM(scrapy.Spider):
     # 北京市中医药管理局（Beijing Administration of Traditional Chinese Medicine）
     name = "BATCM"
 
-    page_urls = []
+    def __init__(self, mode):
+        loggingRoot = False if (hasattr(self, "mode")) else True
+        configure_logging(install_root_handler=loggingRoot)
+
+        current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
+        logging.basicConfig(
+            format="%(asctime)s %(levelname)s:%(message)s",
+            filename=f"./logs/scrapy_{current_time}.log",
+            level=logging.WARNING,
+        )  # ISO 8601 Timestamp format
 
     def start_requests(self):
         item = ElasticSearchItem()
 
         urls = {
-            True: ["http://zyj.beijing.gov.cn/sy/tzgg/"],
-            False: [
+            True: [
                 "http://zyj.beijing.gov.cn/sy/tzgg/",
                 "http://zyj.beijing.gov.cn/sy/zcfg/",
                 "http://zyj.beijing.gov.cn/zcjd/wjjd/",
             ],
-        }[hasattr(self, "mode") and self.mode == "test"]
+            False: ["http://zyj.beijing.gov.cn/sy/tzgg/"],
+        }[hasattr(self, "mode") and self.mode == "prod"]
 
         for url in urls:
             # change url depending on pages
             for num in (
-                range(0, 2)
-                if (hasattr(self, "mode") and self.mode == "test")
-                else range(0, 1000)
+                range(0, 1000)
+                if (hasattr(self, "mode") and self["mode"] == "prod")
+                else range(0, 2)
             ):
                 # eg. default fetch data from 'http://zyj.beijing.gov.cn/sy/tzgg'
                 new_url = url
@@ -61,6 +72,7 @@ class BATCM(scrapy.Spider):
     def contentPage(self, response):
         content_urls = []
         item = response.meta["item"]
+
         # Check whether data exist (also check whether this page exist)
         if bool(response.css("div.oursv_b_f li")):
             for quote in response.css("div.oursv_b_f li"):
@@ -99,7 +111,6 @@ class BATCM(scrapy.Spider):
                     )
 
     def detailPage(self, response):
-        # self.logger.info('Hi, this is an item page! %s', response.url)
         item = response.meta["item"]
 
         item["urlSource"] = response.url
@@ -109,12 +120,14 @@ class BATCM(scrapy.Spider):
         item["scrapyDate"] = d1
 
         title_origin = response.css("h4::text").get()
+
         # delete "\n" and spaces in title
         title_new = title_origin.strip(" \n")
         item["title"] = re.sub(r"\s", "", title_new)
 
         date_origin = response.css("div.zhengwen div::text").get()
-        # change    "日期：2021-04-29  来源： "    to      "2021-04-29"
+
+        # change "日期：2021-04-29  来源： " to "2021-04-29"
         item["publishingDate"] = re.search("(?<=：)\S*", date_origin).group(0)
 
         item["source"] = str(response.css("span.ly::text").get()).strip(" ")
