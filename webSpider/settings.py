@@ -10,8 +10,8 @@ import random
 
 BOT_NAME = "webSpider"
 
-SPIDER_MODULES = ["webSpider.spiders"]
-NEWSPIDER_MODULE = "webSpider.spiders"
+SPIDER_MODULES = ["webSpider.spiders.websites"]
+NEWSPIDER_MODULE = "webSpider.spiders.websites"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

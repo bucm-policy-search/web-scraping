@@ -1,5 +1,6 @@
-webSpider/__pycache__
-webSpider/spiders/__pycache__/
-webSpider/spiders/websites/__pycache__
-.env
+webSpider/**/__pycache__
+
 logs/
+output/
+
+.env
