@@ -17,6 +17,7 @@ Faker.seed(random.randint(150, 300))
 #                           TO BE DONE                           #
 ##################################################################
 
+
 class NATCM(scrapy.Spider):
 
     # 国家中医药管理局 (National Administration of Traditional Chinese Medicine)
