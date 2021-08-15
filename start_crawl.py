@@ -5,7 +5,7 @@ from time import strftime
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
-from webSpider.spiders.websites.BATCM import BATCM
+from webSpider.spiders.BATCM import BATCM
 
 import argparse
 
