@@ -23,20 +23,27 @@ class ElasticSearchPipeline:
         load_dotenv()
         logging.debug("print config value: %s", os.environ)
 
-        username = os.environ["USERNAME"] or "elastic"
-        PASSWORD = os.environ["PASSWORD"] or "changeme"
-        URL = os.environ["URL"] or "http://localhost:9200"
+        USERNAME = os.environ.get("USERNAME", "changeme")
+        PASSWORD = os.environ.get("PASSWORD", "changeme")
+        URL = os.environ.get("URL", "http://localhost:9200")
 
-        # 详情参考官方文档 https://elasticsearch-py.readthedocs.io/en/7.x/
-        try:
-            self.es = Elasticsearch(
-                ["http://{}:{}@{}/".format(username, PASSWORD, URL)]
-            )
-            logging.debug("ElasticSearch connected")
-            self.es.search(index="policy", filter_path=["hits.hits._id"])
-        except Exception:
-            logging.error("Fail to connect ElasticSearch.")
+        if USERNAME == "changeme" and PASSWORD == "changeme":
+            # 如果真有人用这样的用户名和密码，那也不要连了, 2333
             self.es_connected = False
+        else:
+            # 详情参考官方文档 https://elasticsearch-py.readthedocs.io/en/7.x/
+            try:
+                self.es = Elasticsearch(
+                    ["http://{}:{}@{}/".format(USERNAME, PASSWORD, URL)]
+                )
+                logging.debug("ElasticSearch connected")
+
+                INDEX = os.environ.get("ES_INDEX", "changeme")
+
+                self.es.search(index="policy", filter_path=["hits.hits._id"])
+            except Exception:
+                logging.error("Fail to connect ElasticSearch.")
+                self.es_connected = False
 
     def open_spider(self, spider):
         self.connect_elasticsearch()

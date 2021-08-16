@@ -19,6 +19,7 @@
   HOST=localhost
   PORT=9200
   URL=${HOST}:${PORT}
+  ES_INDEX=INDEX_CHANGEME
   ```
 
 ### 后台定时爬虫
@@ -47,6 +48,12 @@
 **新回答**：在用 jq 对 json 解码后，用官方[bulk api](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)（此处给的是 Node.js 版本）。**原回答废弃**原因是，对于 jq 转换成的`\"`，echo、printf 等其他输出函数在 pipe 输出时会将 json 值中的`\"`在 bulk 前就转换成`"`，从而导致输入到 Elasticsearch 中出错。且暂时无解，'\\'等常见转义字符可以取消转换，但暂未见到针对`\"`解决方式的回答。
 
 **原回答（废弃不用）**：导入`[{},{}]`类型 Json 文件，参考[此 elasticsearch 回答](https://stackoverflow.com/questions/33340153/elasticsearch-bulk-index-json-data/33340234#33340234)使用[elastic bulk REST API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
+
+## 网络异常，Console 出现大量报错
+
+如出现大批量诸如 "OSError: [Errno 101] Network is unreachable" 之类的错误
+
+那是因为在不连接梯子的情况下，`fake-useragent`无法访问 `w3schools`, `heroku` 之类的数据源。用默认值忽视就行。
 
 ## 注意事项
 

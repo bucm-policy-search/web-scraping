@@ -12,9 +12,6 @@ from datetime import date
 import random
 from faker import Faker
 
-fake = Faker(["zh_CN"])
-Faker.seed(random.randint(150, 300))
-
 """
 Debug
 --------------------------------------------------------
@@ -72,7 +69,12 @@ class BATCM(scrapy.Spider):
                     # eg. fetch data from 'http://zyj.beijing.gov.cn/sy/tzgg/index_1.html'
                     new_url = url + "index_{num}.html".format(num=num)
 
-                if requests.head(new_url, headers={"User-Agent": fake.chrome()}).ok:
+                if requests.head(
+                    new_url,
+                    headers={
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+                    },
+                ).ok:
                     logging.debug(
                         "The new_url in start_request to BATCM_contentPage: {}".format(
                             new_url
