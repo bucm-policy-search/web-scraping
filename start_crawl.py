@@ -1,3 +1,4 @@
+import os
 import logging
 import schedule
 import time
@@ -30,9 +31,11 @@ crawl_auto = args.auto
 
 
 def job():
+    check_folder = os.path.isdir("./logs")
+    if not check_folder:
+        os.makedirs("./logs/", mode=0o755)
 
     current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
-
     logging.basicConfig(
         format="%(asctime)s %(levelname)s:%(message)s",
         filename=f"./logs/scrapy_{current_time}.log",

@@ -11,6 +11,15 @@
 - 用`conda`或`virtualenv`创建虚拟环境。
 - `git clone`下载仓库内容
 - 运行`pip install -r requirements.txt`安装所有依赖包
+- （可选）如果需要爬虫时自动将数据存储到后台的数据库，在`README.md`同层目录创建`.env`文件，输入类似如下内容
+
+  ```
+  USERNAME=ELASTICSEARCH_CHANGEME
+  PASSWORD=PASSWORD_CHANGEME
+  HOST=localhost
+  PORT=9200
+  URL=${HOST}:${PORT}
+  ```
 
 ### 后台定时爬虫
 

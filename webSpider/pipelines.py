@@ -23,9 +23,9 @@ class ElasticSearchPipeline:
         load_dotenv()
         logging.debug("print config value: %s", os.environ)
 
-        username = os.environ["USERNAME"]
-        PASSWORD = os.environ["PASSWORD"]
-        URL = os.environ["URL"]
+        username = os.environ["USERNAME"] or "elastic"
+        PASSWORD = os.environ["PASSWORD"] or "changeme"
+        URL = os.environ["URL"] or "http://localhost:9200"
 
         # 详情参考官方文档 https://elasticsearch-py.readthedocs.io/en/7.x/
         try:
