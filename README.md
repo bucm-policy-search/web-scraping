@@ -24,8 +24,7 @@
 
 ### 后台定时爬虫
 
-- 找到`start_crawl.py`所在位置并
-- 用 [pm2](https://pm2.keymetrics.io/) 后台管理
+- 找到`start_crawl.py`所在位置并用 [pm2](https://pm2.keymetrics.io/) 后台管理
 - 找到当前虚拟环境所在地址，替代下面的 /path/to/venv/bin/python
 
 代码样例：`pm2 start start_crawl.py --interpreter=/path/to/venv/bin/python`
