@@ -5,8 +5,12 @@ import time
 from time import strftime
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
+from dotenv import load_dotenv
 
+from mail import sendMail
 from webSpider.spiders.BATCM import BATCM
+from webSpider.spiders.NATCM import NATCM
+
 
 import argparse
 
@@ -26,7 +30,6 @@ parser.add_argument(
 args = parser.parse_args()
 
 crawl_mode = args.mode
-
 crawl_auto = args.auto
 
 
@@ -44,14 +47,24 @@ def job():
 
     process = CrawlerProcess(get_project_settings())
     process.crawl(BATCM, mode=crawl_mode)
+    process.crawl(NATCM, mode=crawl_mode)
     process.start()
+
+    load_dotenv()
+
+    if ("SENDER" in os.environ) and ("RECEIVERS" in os.environ):
+        SENDER = os.environ["SENDERS"]
+        RECEIVERS = os.environ.get["RECEIVERS"]
+        sendMail(sender=SENDER, receivers=RECEIVERS)
 
 
 if crawl_auto == "non":
     job()
 else:
-    schedule.every().day.at("03:30").do(job)
+    schedule.every().day.at("19:35").do(job)
 
-    while 1:
+    logging.info("Start crawling.")
+
+    while True:
         schedule.run_pending()
         time.sleep(1)

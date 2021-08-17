@@ -20,12 +20,14 @@
   PORT=9200
   URL=${HOST}:${PORT}
   ES_INDEX=INDEX_CHANGEME
+  SENDER="test@bucm.edu.cn"
+  RECEIVERS=["xxxx@outlook.com"]
   ```
 
 ### 后台定时爬虫
 
 - 找到`start_crawl.py`所在位置并用 [pm2](https://pm2.keymetrics.io/) 后台管理
-- 找到当前虚拟环境所在地址，替代下面的 /path/to/venv/bin/python
+- 找到当前虚拟环境所在地址（绝对路径），替代下面的 /path/to/venv/bin/python
 
 代码样例：`pm2 start start_crawl.py --interpreter=/path/to/venv/bin/python`
 
@@ -34,13 +36,13 @@
 ### 单次爬虫
 
 1. 进入虚拟环境并启动虚拟环境：`source developEnv/bin/activate`（退出虚拟环境用`deactivate`）
-2. 进入对应的项目文件夹中（如 venv/webSpider，即`scrapy.cfg`存在文件夹），可执行对应 spider，如`scrapy crawl BATCM -O output/result.json`。**注意：**使用默认设置会爬取某网页 3 个子页面内包含的所有子网页，而且为了防止被反爬虫限制了爬取速度，速度较慢，预计需 5 分钟
+2. 进入对应的项目文件夹中（如 venv/webSpider，即`scrapy.cfg`存在文件夹），可执行对应 spider，如`scrapy crawl BATCM -O output/result.json`。**注意：**使用默认设置会爬取某网页 2 个子页面内包含的所有子网页，而且为了防止被反爬虫限制了爬取速度，速度较慢，预计需 5 分钟
 
 ## 常见问题
 
 ### 被创宇云防御（云 WAF 类）拦下
 
-过一两分钟可继续正常访问，注意修改 `User-Agent` . Scrapy Shell 启动时要加入相关参数，如`scrapy shell -s USER_AGENT='Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)' 'http://zyj.beijing.gov.cn/sy/tzgg/'`
+过一两分钟可继续正常访问，注意要到文件根目录（含`scrapy.cfg`）运行`scrapy shell`；或修改 `User-Agent`，如`scrapy shell -s USER_AGENT='Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)' 'http://zyj.beijing.gov.cn/sy/tzgg/'`
 
 ### 如何手动批量导入爬取的 json 格式数据
 
@@ -50,9 +52,7 @@
 
 ## 网络异常，Console 出现大量报错
 
-如出现大批量诸如 "OSError: [Errno 101] Network is unreachable" 之类的错误
-
-那是因为在不连接梯子的情况下，`fake-useragent`无法访问 `w3schools`, `heroku` 之类的数据源。用默认值忽视就行。
+如出现大批量诸如 "OSError: [Errno 101] Network is unreachable" 之类的错误，静等 1~2 分钟，等错误所有都跳过即可。在不用“梯子”的情况下，`fake-useragent`无法访问 `w3schools`, `heroku` 之类的数据源，且会多次重试链接。虽然无法使用随机 UA，已设置了默认的 UA，错误不用理会。
 
 ## 注意事项
 

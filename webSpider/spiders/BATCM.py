@@ -10,7 +10,6 @@ from scrapy.loader import ItemLoader
 from w3lib.html import remove_tags
 from datetime import date
 import random
-from faker import Faker
 
 """
 Debug
@@ -56,9 +55,11 @@ class BATCM(scrapy.Spider):
             False: ["http://zyj.beijing.gov.cn/sy/tzgg/"],
         }[hasattr(self, "mode") and self.mode == "prod"]
 
+        # 再从这些页面的各分页下手，1至1000页
         for url in urls:
             # change url depending on pages
             for num in (
+                # BATCM网页命名就是这样，"xxx/index.html"（第1页）或 "xxx/index_1.html"（第2页），其他类似
                 range(0, 1000)
                 if (hasattr(self, "mode") and self["mode"] == "prod")
                 else range(0, 2)
@@ -94,8 +95,12 @@ class BATCM(scrapy.Spider):
         if bool(response.css("div.oursv_b_f li")):
             for quote in response.css("div.oursv_b_f li"):
                 url = response.urljoin(quote.css("div a::attr(href)").get())
+
+                # 处理那些页面链接直接是下载".xls"之类文件而非二级页面的情况
                 if ".html" not in url:
                     item["title"] = quote.css("div a::attr(title)").get()
+
+                    # 下面"article"处理那些没有".html"在URL的页面，"plaintext"同，不要删
                     item["article"] = quote.css("div a::attr(title)").get()
                     item["plaintext"] = quote.css("div a::attr(title)").get()
                     item["urlSource"] = url
@@ -105,7 +110,9 @@ class BATCM(scrapy.Spider):
                     item["scrapyDate"] = d1
 
                     tmpDate = quote.css("span::text").get()
-                    item["publishingDate"] = re.search("\S+", tmpDate).group(0)
+                    item["publishingDate"] = re.search(r"\S+", tmpDate).group(0)
+
+                    # 这里应对的是上文链接即附件的情况，也将它们算入有附件的页面中
                     item["attachment"] = [
                         {"mark": quote.css("div a::attr(title)").get(), "link": url}
                     ]
@@ -118,11 +125,9 @@ class BATCM(scrapy.Spider):
                     )
 
             for content_url in content_urls:
+
+                # 一页20篇文章
                 for num in range(0, 20):
-                    url = {
-                        True: content_url,
-                        False: content_url + "index_{num}.html".format(num=num),
-                    }[num == 0]
                     yield scrapy.Request(
                         url=content_url, callback=self.detailPage, meta={"item": item}
                     )
@@ -147,7 +152,7 @@ class BATCM(scrapy.Spider):
         # change "日期：2021-04-29  来源： " to "2021-04-29"
         item["publishingDate"] = re.search("(?<=：)\S*", date_origin).group(0)
 
-        item["source"] = str(response.css("span.ly::text").get()).strip(" ")
+        item["source"] = "北京市中医管理局"
 
         article = {
             True: response.css("div.view").get(),
