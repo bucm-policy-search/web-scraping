@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 from mail import sendMail
 from webSpider.spiders.BATCM import BATCM
 from webSpider.spiders.NATCM import NATCM
+from webSpider.spiders.HCOHP import HCOHP
 
 
 import argparse
@@ -46,8 +47,11 @@ def job():
     )  # ISO 8601 Timestamp format
 
     process = CrawlerProcess(get_project_settings())
+
     process.crawl(BATCM, mode=crawl_mode)
     process.crawl(NATCM, mode=crawl_mode)
+    process.crawl(HCOHP, mode=crawl_mode)
+
     process.start()
 
     load_dotenv()

@@ -167,6 +167,7 @@ class BATCM(scrapy.Spider):
         if ul != []:
             for li in ul:
                 mark = li.css("a::text").get()
+
                 link = response.urljoin(li.css("a::attr(href)").get())
                 attachment.append({"mark": mark, "link": link})
         item["attachment"] = attachment
