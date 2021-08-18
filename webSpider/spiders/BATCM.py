@@ -112,10 +112,14 @@ class BATCM(scrapy.Spider):
                     tmpDate = quote.css("span::text").get()
                     item["publishingDate"] = re.search(r"\S+", tmpDate).group(0)
 
+                    mark = (
+                        quote.css("div a::attr(title)").get()
+                        if (quote.css("div a::attr(title)").get() is None)
+                        else quote.css("div a::attr(title)").get()
+                    )
+
                     # 这里应对的是上文链接即附件的情况，也将它们算入有附件的页面中
-                    item["attachment"] = [
-                        {"mark": quote.css("div a::attr(title)").get(), "link": url}
-                    ]
+                    item["attachment"] = [{"mark": mark, "link": url}]
 
                     item["source"] = "北京市中医管理局"
                     yield item
