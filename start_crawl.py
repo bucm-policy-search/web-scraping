@@ -57,7 +57,7 @@ def job():
     load_dotenv()
 
     if ("SENDER" in os.environ) and ("RECEIVERS" in os.environ):
-        SENDER = os.environ["SENDERS"]
+        SENDER = os.environ["SENDER"]
         RECEIVERS = os.environ.get["RECEIVERS"]
         sendMail(sender=SENDER, receivers=RECEIVERS)
 
