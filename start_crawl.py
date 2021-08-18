@@ -65,7 +65,7 @@ def job():
 if crawl_auto == "non":
     job()
 else:
-    schedule.every().day.at("19:35").do(job)
+    schedule.every().day.at("03:35").do(job)
 
     logging.info("Start crawling.")
 

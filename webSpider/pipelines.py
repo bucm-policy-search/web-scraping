@@ -82,5 +82,9 @@ class ElasticSearchPipeline:
 
             if self.es.count(index=index, body=search_body)["count"] == 0:
                 self.es.create(index=index, body=insert_body, id=uuid.uuid1())
+            else:
+                self.es.update_by_query(
+                    index=index, body=insert_body, conflicts="proceed"
+                )
 
         return item

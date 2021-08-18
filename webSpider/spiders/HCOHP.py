@@ -69,7 +69,7 @@ class HCOHP(scrapy.Spider):
         if bool(response.css(".er-list2")):
             for quote in response.css(".er-list2").xpath("li"):
                 url = response.urljoin(quote.css("a::attr(href)").get())
-                if ".html" not in url:
+                if "html" not in url:
                     item["title"] = quote.xpath("a/text()").get()
                     item["article"] = quote.xpath("a/text()").get()
                     item["plaintext"] = quote.xpath("a/text()").get()
@@ -134,31 +134,11 @@ class HCOHP(scrapy.Spider):
         ul = response.css(".fjlist li")
         if ul != []:
 
-            # 用了XHR隐藏附件URL，特殊对待一下
-            cid = re.search(r"(?<=\/)[0-9]*(?=\.)", response.url).group(0)
-
-            # 以下内容是从Chrome复制成cURL bash形式，再用Postman转换成python requests形式得到
-            url = f"http://wsjkw.hebei.gov.cn/attachment_url.jspx?cid={cid}&n={len(ul)}"
-            payload = {}
-            headers = {
-                "Proxy-Connection": "keep-alive",
-                "Accept": "application/json, text/javascript, */*; q=0.01",
-                "DNT": "1",
-                "X-Requested-With": "XMLHttpRequest",
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36",
-                "Referer": response.url,
-                "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
-            }
-
-            res = requests.request("GET", url, headers=headers, data=payload)
-
-            appendUrlList = res.json()
-
-            print(response.text)
+            # 附件URL爬虫部分要移交前端，因为附件所在URL会随Timestamp实时改变
 
             for index, li in enumerate(ul):
                 mark = li.css("a::text").get()
-                attachment.append({"mark": mark, "link": url + appendUrlList[index]})
+                attachment.append({"mark": mark, "link": response.url})
 
             item["attachment"] = attachment
 

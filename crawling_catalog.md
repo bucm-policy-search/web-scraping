@@ -4,7 +4,7 @@
 
 截至 2021-06-11 [国家中医药管理局](http://www.natcm.gov.cn/) 官网 `robots.txt` 内容为
 
-```
+```txt
 User-agent: *
 
 Disallow: /d/
@@ -44,7 +44,7 @@ Disallow: /e/update/
 
 截至 2021-08-17 [河北省卫生健康委员会](http://wsjkw.hebei.gov.cn/) 官网 `robots.txt` 内容为
 
-```
+```txt
 User-agent:*
 Disallow:/db_backup_1491040787/  #DB crash data
 Disallow:/website_backup_1491040787/
@@ -54,3 +54,32 @@ Disallow:/website_backup_1491040787/
 
 - 综合管理 http://wsjkw.hebei.gov.cn/zhgl/index.jhtml
 - 政策法规 http://wsjkw.hebei.gov.cn/zyzcfg/index.jhtml
+
+## 陕西中医药管理局（SATCM）
+
+截至 2021-08-17 [陕西省卫生健康委员会](http://atcm.shaanxi.gov.cn/) 没有发现 `robots.txt` 文件
+
+爬取内容：
+
+### 模板一
+
+- 动态要闻 http://atcm.shaanxi.gov.cn/sy/dtyw/
+
+### 模板二
+
+- 下载专区 https://atcm.shaanxi.gov.cn/bsfw
+- 政府信息公开指南 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgkzn/
+- 政府信息公开实施细则 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgkzd/
+- 政策解读 http://atcm.shaanxi.gov.cn/zfxxgk/zcjd/
+
+### 模板三
+
+- 政府信息年度公开 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgknb/
+
+## 山西省中医药管理局 （HCOSP）
+
+内容在山西省卫生健康委员会网站上
+
+截至 2021-08-17 [山西省卫生健康委员会](http://wjw.shanxi.gov.cn/) 没有发现 `robots.txt` 文件
+
+- 综合管理 http://wjw.shanxi.gov.cn/zyygljl01/index.hrh
