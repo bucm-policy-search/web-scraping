@@ -11,21 +11,6 @@ from w3lib.html import remove_tags
 from datetime import date
 import random
 
-"""
-Debug
---------------------------------------------------------
-Unhandled Runtime Error
-TypeError: Cannot read property '_source' of undefined
---------------------------------------------------------
-
- |   <div className="mt-8 mx-12 mb-16 text-lg" key={value._source.title}>
-> 72 |     <h1 className="font-bold text-3xl">{value._source.title}</h1>
-     |                                              ^
-  73 |     <p className="text-lg mt-10">
-  74 |       原文地址：
-  75 |       <a className="underline" href={value._source.urlSource}>
-"""
-
 
 class BATCM(scrapy.Spider):
 
