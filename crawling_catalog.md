@@ -135,7 +135,7 @@ Disallow:/website_backup_1491040787/
 
 #### 模板二
 
-- 下载专区 https://atcm.shaanxi.gov.cn/bsfw
+- 下载专区 http://atcm.shaanxi.gov.cn/bsfw
 - 政府信息公开指南 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgkzn/
 - 政府信息公开实施细则 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgkzd/
 - 政策解读 http://atcm.shaanxi.gov.cn/zfxxgk/zcjd/
