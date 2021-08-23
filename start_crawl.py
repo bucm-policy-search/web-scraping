@@ -5,9 +5,7 @@ import time
 from time import strftime
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from dotenv import load_dotenv
 
-from mail import sendMail
 from webSpider.spiders.BATCM import BATCM
 from webSpider.spiders.NATCM import NATCM
 from webSpider.spiders.HCOHP import HCOHP
@@ -53,13 +51,6 @@ def job():
     process.crawl(HCOHP, mode=crawl_mode)
 
     process.start()
-
-    load_dotenv()
-
-    if ("SENDER" in os.environ) and ("RECEIVERS" in os.environ):
-        SENDER = os.environ["SENDER"]
-        RECEIVERS = os.environ.get["RECEIVERS"]
-        sendMail(sender=SENDER, receivers=RECEIVERS)
 
 
 if crawl_auto == "non":

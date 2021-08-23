@@ -57,19 +57,7 @@ COOKIES_ENABLED = True
 DOWNLOADER_MIDDLEWARES = {
     "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": None,
     "scrapy.downloadermiddlewares.retry.RetryMiddleware": None,
-    "scrapy_fake_useragent.middleware.RandomUserAgentMiddleware": 400,
-    "scrapy_fake_useragent.middleware.RetryUserAgentMiddleware": 401,
 }
-
-# https://github.com/alecxe/scrapy-fake-useragent
-FAKEUSERAGENT_PROVIDERS = [
-    # this is the first provider we'll try
-    "scrapy_fake_useragent.providers.FakeUserAgentProvider",
-    # if FakeUserAgentProvider fails, we'll use faker to generate a user-agent string for us
-    "scrapy_fake_useragent.providers.FakerProvider",
-    # fall back to USER_AGENT value
-    "scrapy_fake_useragent.providers.FixedUserAgentProvider",
-]
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html

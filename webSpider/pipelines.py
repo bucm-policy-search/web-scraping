@@ -23,12 +23,11 @@ class ElasticSearchPipeline:
         load_dotenv()
         logging.debug("print config value: %s", os.environ)
 
-        USERNAME = os.environ.get("USERNAME", "changeme")
-        PASSWORD = os.environ.get("PASSWORD", "changeme")
-        URL = os.environ.get("URL", "http://localhost:9200")
+        USERNAME = os.environ.get("USERNAME", False)
+        PASSWORD = os.environ.get("PASSWORD", False)
+        URL = os.environ.get("URL", False)
 
-        if USERNAME == "changeme" and PASSWORD == "changeme":
-            # 如果真有人用这样的用户名和密码，那也不要连了, 2333
+        if not (USERNAME and PASSWORD and URL):
             self.es_connected = False
         else:
             # 详情参考官方文档 https://elasticsearch-py.readthedocs.io/en/7.x/
@@ -40,7 +39,7 @@ class ElasticSearchPipeline:
 
                 INDEX = os.environ.get("ES_INDEX", "changeme")
 
-                self.es.search(index="policy", filter_path=["hits.hits._id"])
+                self.es.search(index=INDEX, filter_path=["hits.total.value"])
             except Exception:
                 logging.error("Fail to connect ElasticSearch.")
                 self.es_connected = False
@@ -49,7 +48,7 @@ class ElasticSearchPipeline:
         self.connect_elasticsearch()
 
     def close_spider(self, spider):
-        pass
+        self.es.close()
 
     def process_item(self, item, spider):
 
@@ -57,7 +56,7 @@ class ElasticSearchPipeline:
 
             logging.debug("Processing items in pipelines: {}".format(item))
 
-            index = "policy"
+            index = os.environ["ES_INDEX"]
 
             logging.debug("publishingDate: " + item["publishingDate"])
 
@@ -80,11 +79,19 @@ class ElasticSearchPipeline:
             insert_body = ItemAdapter(item).asdict()
             insert_body["@timestamp"] = strftime("%Y-%m-%dT%H:%M:%S%z")
 
-            if self.es.count(index=index, body=search_body)["count"] == 0:
+            result = self.es.search(
+                index=index,
+                body=search_body,
+                filter_path=["hits.hits._id", "hits.total.value"],
+            )
+
+            id = ""
+            count = result["hits"]["total"]["value"]
+
+            if count == 0:
                 self.es.create(index=index, body=insert_body, id=uuid.uuid1())
             else:
-                self.es.update_by_query(
-                    index=index, body=insert_body, conflicts="proceed"
-                )
+                id = result["hits"]["hits"][0]["_id"]
+                self.es.update(index=index, id=id, body={"doc": insert_body})
 
         return item
