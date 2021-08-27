@@ -64,8 +64,6 @@ class ElasticSearchPipeline:
                 "query": {
                     "bool": {
                         "must": [
-                            {"term": {"title.keyword": {"value": item["title"]}}},
-                            {"match": {"publishingDate": item["publishingDate"]}},
                             {
                                 "term": {
                                     "urlSource.keyword": {"value": item["urlSource"]}
