@@ -134,7 +134,7 @@ class BATCM(scrapy.Spider):
 
         # delete "\n" and spaces in title
         title_new = title_origin.strip(" \n")
-        item["title"] = re.sub(r"\s", "", title_new)
+        item["title"] = re.sub(r'"', "\u0022", title_new)
 
         date_origin = response.css("div.zhengwen div::text").get()
 
@@ -156,9 +156,10 @@ class BATCM(scrapy.Spider):
         if ul != []:
             for li in ul:
                 mark = li.css("a::text").get()
+                new_mark = re.sub(r'"', "\u0022", mark)
 
                 link = response.urljoin(li.css("a::attr(href)").get())
-                attachment.append({"mark": mark, "link": link})
+                attachment.append({"mark": new_mark, "link": link})
         item["attachment"] = attachment
 
         yield item
