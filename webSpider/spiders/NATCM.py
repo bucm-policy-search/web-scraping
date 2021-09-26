@@ -125,11 +125,9 @@ class NATCM(scrapy.Spider):
         # change    "时间：2020-12-10 15:40:19"    to      "2020-12-10"
         item["publishingDate"] = re.search("(?<=：)\S*", date_origin).group(0)
 
-        item["source"] = response.xpath(
-            "//td[@valign]/table[2]//td/span/p[last()]/text()"
-        ).get()
+        item["source"] = "国家中医药管理局"
 
-        article = "".join(response.xpath("//td[@valign]/table[2]//td").getall())
+        article = "".join(response.xpath("//td[@valign]/table[2]//td/span/p").getall())
         item["article"] = article
 
         item["plaintext"] = re.sub(r"\s(\s)+", " ", remove_tags(article))

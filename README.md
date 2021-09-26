@@ -22,8 +22,6 @@
   PORT=9200
   URL=${HOST}:${PORT}
   ES_INDEX=INDEX_CHANGEME
-  SENDER="test@bucm.edu.cn"
-  RECEIVERS=["xxxx@outlook.com"]
   ```
 
 ### 后台定时爬虫
