@@ -20,7 +20,6 @@ class BATCM(scrapy.Spider):
     def __init__(self, mode):
         loggingRoot = False if (hasattr(self, "mode")) else True
         configure_logging(install_root_handler=loggingRoot)
-
         current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
         logging.basicConfig(
             format="%(asctime)s %(levelname)s:%(message)s",

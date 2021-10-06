@@ -70,7 +70,7 @@
 
 爬虫默认遵守各网站`robots.txt`设置规则
 
-### 国家中医药管理局（NATCM/SATCM）
+### 国家中医药管理局（NATCM/SATCM）？？？
 
 截至 2021-06-11 [国家中医药管理局](http://www.natcm.gov.cn/) 官网 `robots.txt` 内容为
 
@@ -132,16 +132,16 @@ Disallow:/website_backup_1491040787/
 #### 模板一
 
 - 动态要闻 http://atcm.shaanxi.gov.cn/sy/dtyw/
+- 下载专区 http://atcm.shaanxi.gov.cn/bsfw
 
 #### 模板二
 
-- 下载专区 http://atcm.shaanxi.gov.cn/bsfw
 - 政府信息公开指南 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgkzn/
 - 政府信息公开实施细则 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgkzd/
-- 政策解读 http://atcm.shaanxi.gov.cn/zfxxgk/zcjd/
+
 
 #### 模板三
-
+- 政策解读 http://atcm.shaanxi.gov.cn/zfxxgk/zcjd/
 - 政府信息年度公开 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgknb/
 
 ### 山西省中医药管理局 （HCOSP）
