@@ -18,7 +18,7 @@
 
 :heavy_check_mark: 河北省中医药管理局
 
-:pencil2: 山西省中医药管理局
+:heavy_check_mark: 山西省中医药管理局
 
 :x: 辽宁省中医药管理局
 
@@ -54,7 +54,7 @@
 
 :x: 云南省中医药管理局
 
-:pencil2: 陕西省中医药管理局
+:heavy_check_mark: 陕西省中医药管理局
 
 :pencil2: 广西壮族自治区中医药管理局
 
@@ -71,6 +71,7 @@
 爬虫默认遵守各网站`robots.txt`设置规则
 
 ### 国家中医药管理局（NATCM/SATCM）
+<!-- NATCM/SATCM两者命名都可。http://natcm.gov.cn 和 http://satcm.gov.cn 都指向同一个网站-->
 
 截至 2021-06-11 [国家中医药管理局](http://www.natcm.gov.cn/) 官网 `robots.txt` 内容为
 
