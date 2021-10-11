@@ -83,7 +83,7 @@ class HCOHP(scrapy.Spider):
                     tmpDate = quote.css("span::text").get()
                     item["publishingDate"] = re.search(r"\S+", tmpDate).group(0)
 
-                    # 应对微信公众号外链
+                    # 如果以下String不在URL中，则多半为微信公众号外链，这种情况保留网址就行
                     if "wsjkw.hebei.gov.cn" in url:
                         item["attachment"] = [
                             {"mark": quote.xpath("a/text()").get(), "link": url}
