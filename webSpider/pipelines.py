@@ -23,17 +23,17 @@ class ElasticSearchPipeline:
         load_dotenv()
         logging.debug("print config value: %s", os.environ)
 
-        NAME = os.environ.get("NAME", False)
+        USERNAME = os.environ.get("USERNAME", False)
         PASSWORD = os.environ.get("PASSWORD", False)
         URL = os.environ.get("URL", False)
 
-        if not (NAME and PASSWORD and URL):
+        if not (USERNAME and PASSWORD and URL):
             self.es_connected = False
         else:
             # 详情参考官方文档 https://elasticsearch-py.readthedocs.io/en/7.x/
             try:
                 self.es = Elasticsearch(
-                    ["http://{}:{}@{}/".format(NAME, PASSWORD, URL)]
+                    ["http://{}:{}@{}/".format(USERNAME, PASSWORD, URL)]
                 )
                 logging.debug("ElasticSearch connected")
 
@@ -48,7 +48,7 @@ class ElasticSearchPipeline:
         self.connect_elasticsearch()
 
     def close_spider(self, spider):
-        self.es.close()
+        pass
 
     def process_item(self, item, spider):
 

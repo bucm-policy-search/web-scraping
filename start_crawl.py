@@ -7,8 +7,10 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 from webSpider.spiders.BATCM import BATCM
-from webSpider.spiders.NATCM import NATCM
 from webSpider.spiders.HCOHP import HCOHP
+from webSpider.spiders.HCOSP import HCOSP
+from webSpider.spiders.NATCM import NATCM
+from webSpider.spiders.SATCM import SATCM
 
 
 import argparse
@@ -47,8 +49,10 @@ def job():
     process = CrawlerProcess(get_project_settings())
 
     process.crawl(BATCM, mode=crawl_mode)
-    process.crawl(NATCM, mode=crawl_mode)
     process.crawl(HCOHP, mode=crawl_mode)
+    process.crawl(HCOSP, mode=crawl_mode)
+    process.crawl(NATCM, mode=crawl_mode)
+    process.crawl(SATCM, mode=crawl_mode)
 
     process.start()
 
