@@ -1,18 +1,18 @@
-## 目录
+## 概括
 
-示意：:pencil2: 表示尚未完成，:heavy_check_mark: 表示已完成， :x: 表示对应机构网站不存在。
+示意：:pencil2: 表示尚未完成，:heavy_check_mark: 表示已完成， :x: 表示开发人员没有找到对应机构官方网站。
 
 只爬取以`.gov.cn`为后缀的域名网站
 
 以下是中国大陆境内中医药管理局机构的详细名单及对应网站爬取情况（排名不分先后）
 
-:heavy_check_mark: [国家中医药管理局](http://www.natcm.gov.cn/)
+:heavy_check_mark: [国家中医药管理局](#国家中医药管理局natcmsatcm)
 
-:heavy_check_mark: [北京市中医药管理局](http://zyj.beijing.gov.cn/)
+:heavy_check_mark: [北京市中医药管理局](#北京市中医药管理局batcm)
 
 :x: 天津市中医药管理局
 
-:pencil2: [上海市中医药管理局（上海市卫生健康委员会）](https://wsjkw.sh.gov.cn/)
+:pencil2: [上海市中医药管理局（上海市卫生健康委员会）](#上海市中医药管理局)
 
 :x: 重庆市中医药管理局
 
@@ -22,7 +22,7 @@
 
 :x: 辽宁省中医药管理局
 
-:pencil2: 吉林省中医药管理局
+:pencil2: [吉林省中医药管理局](#吉林省中医药管理局jltcm)
 
 :x: 黑龙江省中医药管理局
 
@@ -54,7 +54,7 @@
 
 :x: 云南省中医药管理局
 
-:heavy_check_mark: 陕西省中医药管理局
+:heavy_check_mark: [陕西省中医药管理局](:陕西省中医药管理局)
 
 :pencil2: 广西壮族自治区中医药管理局
 
@@ -105,7 +105,9 @@ Disallow: /e/update/
 - 政策法规 http://zyj.beijing.gov.cn/sy/zcfg/
 - 政策解读 http://zyj.beijing.gov.cn/zcjd/wjjd/
 
-### 天津市中医药管理局 (404 Not Found)
+### 上海市中医药管理局
+
+
 
 ### 河北省中医药管理局 （HCOHP）
 
@@ -124,7 +126,7 @@ Disallow:/website_backup_1491040787/
 - 综合管理 http://wsjkw.hebei.gov.cn/zhgl/index.jhtml
 - 政策法规 http://wsjkw.hebei.gov.cn/zyzcfg/index.jhtml
 
-### 陕西中医药管理局（SATCM）
+### 陕西省中医药管理局（SATCM）
 
 截至 2021-08-17 [陕西省卫生健康委员会](http://atcm.shaanxi.gov.cn/) 没有发现 `robots.txt` 文件
 
@@ -145,10 +147,19 @@ Disallow:/website_backup_1491040787/
 
 - 政府信息年度公开 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgknb/
 
-### 山西省中医药管理局 （HCOSP）
+### 山西省中医药管理局（HCOSP）
 
 内容在山西省卫生健康委员会网站上
 
 截至 2021-08-17 [山西省卫生健康委员会](http://wjw.shanxi.gov.cn/) 没有发现 `robots.txt` 文件
 
 - 综合管理 http://wjw.shanxi.gov.cn/zyygljl01/index.hrh
+
+### 吉林省中医药管理局（JLTCM）
+
+截至2022-02-02 [吉林省中医药管理局](http://jltcm.jl.gov.cn/) 没有发现 `robots.txt` 文件
+
+- 公开文件 http://jltcm.jl.gov.cn/tzgg/xgdt/
+- 公示公告 http://jltcm.jl.gov.cn/tzgg/gsgg/
+- 政策解读 http://jltcm.jl.gov.cn/zwgk/zcjd/
+
