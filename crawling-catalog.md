@@ -6,29 +6,29 @@
 
 以下是中国大陆境内中医药管理局机构的详细名单及对应网站爬取情况（排名不分先后）
 
-:heavy_check_mark: [国家中医药管理局](#国家中医药管理局natcmsatcm)
+:heavy_check_mark: [国家中医药管理局](#国家中医药管理局)
 
-:heavy_check_mark: [北京市中医药管理局](#北京市中医药管理局batcm)
+:heavy_check_mark: [北京市中医药管理局](#北京市中医药管理局)
 
-:x: 天津市中医药管理局
+:pencil2: [天津市中医药管理局](#天津市中医药管理局)
 
 :pencil2: [上海市中医药管理局（上海市卫生健康委员会）](#上海市中医药管理局)
 
 :x: 重庆市中医药管理局
 
-:heavy_check_mark: 河北省中医药管理局
+:heavy_check_mark: [河北省中医药管理局](#河北省中医药管理局)
 
-:heavy_check_mark: 山西省中医药管理局
+:heavy_check_mark: [山西省中医药管理局](#山西省中医药管理局)
 
 :x: 辽宁省中医药管理局
 
-:pencil2: [吉林省中医药管理局](#吉林省中医药管理局jltcm)
+:pencil2: [吉林省中医药管理局](#吉林省中医药管理局)
 
-:x: 黑龙江省中医药管理局
+:pencil2: [黑龙江省中医药管理局](#黑龙江省中医药管理局)
 
-:pencil2: 江苏省中医药管理局
+:pencil2: [江苏省中医药管理局](#江苏省中医药管理局)
 
-:pencil2: 浙江省中医药管理局
+:pencil2: [浙江省中医药管理局](#浙江省中医药管理局)
 
 :pencil2: 安徽省中医药管理局
 
@@ -70,8 +70,8 @@
 
 爬虫默认遵守各网站`robots.txt`设置规则
 
-### 国家中医药管理局（NATCM/SATCM）
-<!-- NATCM/SATCM两者命名都可。http://natcm.gov.cn 和 http://satcm.gov.cn 都指向同一个网站-->
+### 国家中医药管理局
+<!-- http://natcm.gov.cn 和 http://satcm.gov.cn 都指向同一个网站-->
 
 截至 2021-06-11 [国家中医药管理局](http://www.natcm.gov.cn/) 官网 `robots.txt` 内容为
 
@@ -95,7 +95,7 @@ Disallow: /e/update/
 - 政策解读 http://www.satcm.gov.cn/a/zcjd/
 - 法律法规 http://www.satcm.gov.cn/a/fjs_flfg/
 
-### 北京市中医药管理局（BATCM）
+### 北京市中医药管理局
 
 截至 2021-04-19 [北京市中医药管理局](http://zyj.beijing.gov.cn/) 没有发现 `robots.txt` 文件
 
@@ -107,9 +107,27 @@ Disallow: /e/update/
 
 ### 上海市中医药管理局
 
+内容在上海市卫生健康委员会网站上
 
+截至 2022-02-02, 未在[上海市卫生健康委员会](http://wsjkw.sh.gov.cn/) 官网找到 `robots.txt` 
 
-### 河北省中医药管理局 （HCOHP）
+**（特殊！）需要试图获取搜索结果**
+
+### 黑龙江省中医药管理局
+
+内容在黑龙江省卫生健康委员会网站上
+
+截至 2022-02-02, 未在[黑龙江省卫生健康委员会](http://wsjkw.hlj.gov.cn/) 官网找到 `robots.txt` 
+
+**（特殊！）需要试图获取搜索结果**
+
+### 天津市中医药管理局
+
+截至 2022-02-03, 未在[天津市卫生健康委员会](http://wsjk.tj.gov.cn/) 官网找到 `robots.txt`
+
+**（特殊！）需要试图获取搜索结果**
+
+### 河北省中医药管理局
 
 内容在河北省卫生健康委员会网站上
 
@@ -126,7 +144,7 @@ Disallow:/website_backup_1491040787/
 - 综合管理 http://wsjkw.hebei.gov.cn/zhgl/index.jhtml
 - 政策法规 http://wsjkw.hebei.gov.cn/zyzcfg/index.jhtml
 
-### 陕西省中医药管理局（SATCM）
+### 陕西省中医药管理局
 
 截至 2021-08-17 [陕西省卫生健康委员会](http://atcm.shaanxi.gov.cn/) 没有发现 `robots.txt` 文件
 
@@ -147,7 +165,7 @@ Disallow:/website_backup_1491040787/
 
 - 政府信息年度公开 http://atcm.shaanxi.gov.cn/zfxxgk/zfxxgknb/
 
-### 山西省中医药管理局（HCOSP）
+### 山西省中医药管理局
 
 内容在山西省卫生健康委员会网站上
 
@@ -155,7 +173,7 @@ Disallow:/website_backup_1491040787/
 
 - 综合管理 http://wjw.shanxi.gov.cn/zyygljl01/index.hrh
 
-### 吉林省中医药管理局（JLTCM）
+### 吉林省中医药管理局
 
 截至2022-02-02 [吉林省中医药管理局](http://jltcm.jl.gov.cn/) 没有发现 `robots.txt` 文件
 
@@ -163,3 +181,19 @@ Disallow:/website_backup_1491040787/
 - 公示公告 http://jltcm.jl.gov.cn/tzgg/gsgg/
 - 政策解读 http://jltcm.jl.gov.cn/zwgk/zcjd/
 
+### 江苏省中医药管理局
+
+截至2022-02-02 [江苏省中医药管理局](http://wjw.jiangsu.gov.cn/col/col57216/index.html) 没有发现 `robots.txt` 文件
+
+- 政策法规 http://wjw.jiangsu.gov.cn/col/col57222/index.html
+- 部门文件 http://wjw.jiangsu.gov.cn/col/col57223/index.html
+- 财政信息 http://wjw.jiangsu.gov.cn/col/col57224/index.html
+- 公示公告 http://wjw.jiangsu.gov.cn/col/col57225/index.html
+
+### 浙江省中医药管理局
+
+与浙江省卫健委信息合并
+
+截至2022-02-02 [浙江省中医药管理局](https://wsjkw.zj.gov.cn/) 没有发现 `robots.txt` 文件
+
+**（特殊！）需要试图获取搜索结果**
