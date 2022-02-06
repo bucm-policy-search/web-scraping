@@ -48,23 +48,25 @@
 
 :pencil2: [海南省中医药管理局](#海南省中医药管理局)
 
-:pencil2: 四川省中医药管理局
+:pencil2: [四川省中医药管理局](#四川省中医药管理局)
 
-:pencil2: 贵州省中医药管理局
+:pencil2: [贵州省中医药管理局](#贵州省中医药管理局)
 
-:x: 云南省中医药管理局
+:pencil2: [云南省中医药管理局](#云南省中医药管理局)
 
 :heavy_check_mark: [陕西省中医药管理局](:陕西省中医药管理局)
 
-:pencil2: 广西壮族自治区中医药管理局
+:pencil2: [广西壮族自治区中医药管理局](#广西壮族自治区中医药管理局)
 
-:x: 内蒙古自治区中医药管理局
+:pencil2: [内蒙古自治区中医药管理局](#内蒙古自治区中医药管理局)
 
-:x: 西藏自治区中医药管理局
+:pencil2: [西藏自治区中医药管理局](#西藏自治区中医药管理局)
 
-:x: 宁夏回族自治区中医药管理局
+:pencil2: [宁夏回族自治区中医药管理局](#宁夏回族自治区中医药管理局)
 
-:x: 新疆维吾尔自治区中医药管理局
+:pencil2: [新疆维吾尔自治区中医药管理局](#新疆维吾尔自治区中医药管理局)
+
+:pencil2: [青海省中医药管理局](#青海省中医药管理局)
 
 ## 详细内容
 
@@ -292,3 +294,78 @@ Disallow:/website_backup_1491040787/
 截至2022-02-04 [海南省中医药管理局](http://wst.hainan.gov.cn/swjw/index.html) 没有发现 `robots.txt` 文件
 
 **（特殊！）需要试图获取搜索结果**
+
+### 四川省中医药管理局
+
+截至2022-02-04 [四川省中医药管理局](https://sctcm.sc.gov.cn/) 没有发现 `robots.txt` 文件
+
+- 机构职能
+  - 局领导介绍 http://sctcm.sc.gov.cn/sctcm/jldjs/2019/11/18/c7908a95952740d8a7f069afe43eea4d.shtml
+  - 机构设置 http://sctcm.sc.gov.cn/sctcm/jgsz/class.shtml
+  - 主要职责 http://sctcm.sc.gov.cn/sctcm/zyzz/2019/2/7/c2f61be714e44724901d2e8b23e0c1fb.shtml
+  - 直属单位 http://sctcm.sc.gov.cn/sctcm/zsdw/class.shtml
+- 政务信息
+  - 工作动态 http://sctcm.sc.gov.cn/sctcm/gzdt/class.shtml
+  - 政策法规 http://sctcm.sc.gov.cn/sctcm/zcfg/class_sub.shtml
+  - 解读回应（TODO - Low Priority） http://202.61.89.90:1982/?default.html
+- 政务服务（TODO - Low Priority） http://www.sczwfw.gov.cn/jiq/front/item/bmft_index?deptCode=8282954&areaCode=510000000000
+- 政府信息公开 http://sctcm.sc.gov.cn/sctcm/0701/zfxxgk_xxgkzn.shtml#zfxxgk
+
+### 贵州省中医药管理局
+
+截至2022-02-06 [贵州省中医药管理局](http://atcm.guizhou.gov.cn/) 没有发现 `robots.txt` 文件
+
+- 中医工作动态 http://atcm.guizhou.gov.cn/xwzx/zyyw/
+- 通知公告 http://atcm.guizhou.gov.cn/xwzx/tzgg/
+- 政务公开（TODO - Low Priority） http://atcm.guizhou.gov.cn/zwgk/
+
+### 云南省中医药管理局
+
+截至2022-02-06 [云南省中医药管理局](http://ynswsjkw.yn.gov.cn/web/index) 没有发现 `robots.txt` 文件
+
+**（特殊！）需要试图获取搜索结果**
+
+### 广西壮族自治区中医药管理局
+
+截至2022-02-06 [广西壮族自治区中医药管理局](http://zyyj.gxzf.gov.cn/) 没有发现 `robots.txt` 文件
+
+- 新闻动态
+  - 新闻发布 http://zyyj.gxzf.gov.cn/xwdt/zyzc/
+  - 通知公告 http://zyyj.gxzf.gov.cn/xwdt/gxgg/
+  - 工作动态 http://zyyj.gxzf.gov.cn/xwdt/GZDT/
+- 信息公开 
+  - 公开年报 http://zyyj.gxzf.gov.cn/XXGK/GKNB/
+  - 公开内容 http://zyyj.gxzf.gov.cn/XXGK/GKNR/
+    - 下面各级内容……
+
+### 内蒙古自治区中医药管理局
+
+截至2022-02-06 [内蒙古自治区中医药管理局](https://wjw.nmg.gov.cn/) 没有发现 `robots.txt` 文件
+
+**（特殊！）需要试图获取搜索结果**
+
+### 西藏自治区中医药管理局
+
+截至2022-02-06 [西藏自治区中医药管理局](http://wjw.xizang.gov.cn/) 没有发现 `robots.txt` 文件
+
+**（特殊！）需要试图获取搜索结果**
+
+### 宁夏回族自治区中医药管理局
+
+截至2022-02-06 [宁夏回族自治区中医药管理局](http://wsjkw.nx.gov.cn/index.html) 没有发现 `robots.txt` 文件
+
+**（特殊！）需要试图获取搜索结果**
+
+### 新疆维吾尔自治区中医药管理局
+
+截至2022-02-06 [新疆维吾尔自治区中医药管理局](http://wjw.xinjiang.gov.cn/) 没有发现 `robots.txt` 文件
+
+**（特殊！）需要试图获取搜索结果**
+
+### 青海省中医药管理局
+
+截至2022-02-06 [青海省中医药管理局](https://wsjkw.qinghai.gov.cn/ywgl/zzyyglj/index.html) 没有发现 `robots.txt` 文件
+
+- 工作动态 https://wsjkw.qinghai.gov.cn/ywgl/zzyyglj/gzdt/index.html
+- 通知公告 https://wsjkw.qinghai.gov.cn/ywgl/zzyyglj/tzgg/index.html
+- 政策法规 https://wsjkw.qinghai.gov.cn/ywgl/zzyyglj/zcfg/index.html
