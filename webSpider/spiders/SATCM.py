@@ -13,11 +13,9 @@ class SATCM(scrapy.Spider):
     name = "SATCM"
     allowed_domains = ["atcm.shaanxi.gov.cn"]
 
-    def __init__(self):
-        # loggingRoot = False if (hasattr(self, "mode")) else True
-        # configure_logging(install_root_handler=loggingRoot)
+    def __init__(self, mode=None):
+        self.mode = mode
 
-        # ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！BUG 无法创建log
         current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
         logging.basicConfig(
             format="%(asctime)s %(levelname)s:%(message)s",
@@ -86,7 +84,7 @@ class SATCM(scrapy.Spider):
         item["publishingDate"] = publishingDate
 
         article = response.css(".view").get()
-        item["article"] = article
+        item["article"] = remove_tags(article, which_ones=("div"))
         plaintext = re.sub(r"\s(\s)+", " ", remove_tags(article))
         item["plaintext"] = plaintext
 

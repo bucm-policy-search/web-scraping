@@ -21,6 +21,9 @@ class NATCM(scrapy.Spider):
 
     page_urls = []
 
+    def __init__(self, mode=None):
+        self.mode = mode
+
     def start_requests(self):
         item = ElasticSearchItem()
 
@@ -128,7 +131,7 @@ class NATCM(scrapy.Spider):
         item["source"] = "国家中医药管理局"
 
         article = "".join(response.xpath("//td[@valign]/table[2]//td/span/p").getall())
-        item["article"] = article
+        item["article"] = remove_tags(article, which_ones=("div"))
 
         item["plaintext"] = re.sub(r"\s(\s)+", " ", remove_tags(article))
 
