@@ -14,7 +14,9 @@ class HCOSP(scrapy.Spider):
     name = "HCOSP"
     allowed_domains = ["wjw.shanxi.gov.cn"]
 
-    def __init__(self):
+    def __init__(self, mode=None):
+
+        self.mode = mode
         # loggingRoot = False if (hasattr(self, "mode")) else True
         # configure_logging(install_root_handler=loggingRoot)
         current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
@@ -62,7 +64,7 @@ class HCOSP(scrapy.Spider):
             item["urlSource"] = response.url
 
             article = response.css("div.ze-art").get()
-            item["article"] = article
+            item["article"] = remove_tags(article, which_ones=("div"))
             plaintext = re.sub(r"\s(\s)+", " ", remove_tags(article))
             item["plaintext"] = plaintext
 

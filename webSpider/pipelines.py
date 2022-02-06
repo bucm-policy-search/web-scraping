@@ -19,7 +19,7 @@ class ElasticSearchPipeline:
         self.es = {}
         self.es_connected = True
 
-    def connect_elasticsearch(self):
+    def open_spider(self, spider):
         load_dotenv()
         logging.debug("print config value: %s", os.environ)
 
@@ -41,11 +41,8 @@ class ElasticSearchPipeline:
 
                 self.es.search(index=INDEX, filter_path=["hits.total.value"])
             except Exception:
-                logging.error("Fail to connect ElasticSearch.")
+                logging.exception("Fail to connect ElasticSearch.")
                 self.es_connected = False
-
-    def open_spider(self, spider):
-        self.connect_elasticsearch()
 
     def close_spider(self, spider):
         pass

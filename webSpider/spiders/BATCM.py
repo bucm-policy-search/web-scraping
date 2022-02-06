@@ -17,9 +17,8 @@ class BATCM(scrapy.Spider):
     # 北京市中医药管理局（Beijing Administration of Traditional Chinese Medicine）
     name = "BATCM"
 
-    def __init__(self, mode):
-        loggingRoot = False if (hasattr(self, "mode")) else True
-        configure_logging(install_root_handler=loggingRoot)
+    def __init__(self, mode=None):
+        self.mode = mode
 
         current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
         logging.basicConfig(
@@ -46,7 +45,7 @@ class BATCM(scrapy.Spider):
             for num in (
                 # BATCM网页命名就是这样，"xxx/index.html"（第1页）或 "xxx/index_1.html"（第2页），其他类似
                 range(0, 1000)
-                if (hasattr(self, "mode") and self["mode"] == "prod")
+                if (hasattr(self, "mode") and self.mode == "prod")
                 else range(0, 2)
             ):
                 # eg. default fetch data from 'http://zyj.beijing.gov.cn/sy/tzgg'
@@ -147,7 +146,7 @@ class BATCM(scrapy.Spider):
             True: response.css("div.view").get(),
             False: response.css("div.TRS_PreAppend").get(),
         }[response.css("div.view").get() is not None]
-        item["article"] = article
+        item["article"] = remove_tags(article, which_ones=("div"))
 
         item["plaintext"] = re.sub(r"\s(\s)+", " ", remove_tags(article))
 

@@ -19,7 +19,8 @@ class HCOHP(scrapy.Spider):
     # 河北省卫生健康委员会 (Health Commission of Hebei Province)
     name = "HCOHP"
 
-    page_urls = []
+    def __init__(self, mode=None):
+        self.mode = mode
 
     def start_requests(self):
         item = ElasticSearchItem()
@@ -126,7 +127,7 @@ class HCOHP(scrapy.Spider):
         item["source"] = "河北省卫生健康委员会 河北省中医药管理局"
 
         article = "".join(response.css(".con-txt").getall())
-        item["article"] = article
+        item["article"] = remove_tags(article, which_ones=("div"))
 
         item["plaintext"] = re.sub(r"\s(\s)+", " ", remove_tags(article))
 
