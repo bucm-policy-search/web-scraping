@@ -6,12 +6,13 @@ from time import strftime
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
-from webSpider.spiders.BATCM import BATCM
-from webSpider.spiders.HCOHP import HCOHP
-from webSpider.spiders.HCOSP import HCOSP
-from webSpider.spiders.NATCM import NATCM
-from webSpider.spiders.SATCM import SATCM
-
+from webSpider.spiders.beijing import BATCM
+from webSpider.spiders.hebei import HCOHP
+from webSpider.spiders.shanxi import HCOSP
+from webSpider.spiders.guojia import NATCM
+from webSpider.spiders.shaanxi import SATCM
+from webSpider.spiders.jilin import JLTCM
+from webSpider.spiders.anhui import AHTCM
 
 import argparse
 
@@ -53,6 +54,8 @@ def job():
     process.crawl(HCOSP, mode=crawl_mode)
     process.crawl(NATCM, mode=crawl_mode)
     process.crawl(SATCM, mode=crawl_mode)
+    process.crawl(JLTCM, mode=crawl_mode)
+    process.crawl(AHTCM, mode=crawl_mode)
 
     process.start()
 

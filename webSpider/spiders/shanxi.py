@@ -12,20 +12,12 @@ from scrapy.utils.log import configure_logging
 
 class HCOSP(scrapy.Spider):
     name = "HCOSP"
+    #山西省卫生健康委员会
     allowed_domains = ["wjw.shanxi.gov.cn"]
 
     def __init__(self, mode=None):
-
         self.mode = mode
-        # loggingRoot = False if (hasattr(self, "mode")) else True
-        # configure_logging(install_root_handler=loggingRoot)
-        current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
-        logging.basicConfig(
-            format="%(asctime)s %(filename)s %(levelname)s %(message)s",
-            filename=f"./logs/scrapy_{current_time}.log",
-            level=logging.WARNING,
-        )  # ISO 8601 Timestamp format
-
+       
     def start_requests(self):
 
         headers = {

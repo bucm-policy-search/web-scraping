@@ -20,13 +20,6 @@ class BATCM(scrapy.Spider):
     def __init__(self, mode=None):
         self.mode = mode
 
-        current_time = strftime("%Y-%m-%dT%H:%M:%S%z")
-        logging.basicConfig(
-            format="%(asctime)s %(levelname)s:%(message)s",
-            filename=f"./logs/scrapy_{current_time}.log",
-            level=logging.WARNING,
-        )  # ISO 8601 Timestamp format
-
     def start_requests(self):
         item = ElasticSearchItem()
 
@@ -66,7 +59,8 @@ class BATCM(scrapy.Spider):
                         )
                     )
                     yield scrapy.Request(
-                        url=new_url, callback=self.contentPage, meta={"item": item}
+                        url=new_url, callback=self.contentPage, meta={
+                            "item": item}
                     )
                 else:
                     break
@@ -94,7 +88,8 @@ class BATCM(scrapy.Spider):
                     item["scrapyDate"] = d1
 
                     tmpDate = quote.css("span::text").get()
-                    item["publishingDate"] = re.search(r"\S+", tmpDate).group(0)
+                    item["publishingDate"] = re.search(
+                        r"\S+", tmpDate).group(0)
 
                     mark = (
                         quote.css("div a::attr(title)").get()
@@ -117,7 +112,8 @@ class BATCM(scrapy.Spider):
                 # 一页20篇文章
                 for num in range(0, 20):
                     yield scrapy.Request(
-                        url=content_url, callback=self.detailPage, meta={"item": item}
+                        url=content_url, callback=self.detailPage, meta={
+                            "item": item}
                     )
 
     def detailPage(self, response):
