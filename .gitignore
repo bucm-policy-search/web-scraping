@@ -1,6 +1,15 @@
 **/__pycache__
 
+.vscode/
+
+# pdm local setting or install files
+.pdm.toml
+__pypackages__/
+
+node_modules/
+
 logs/
 output/
 
 .env
+**/*.crt

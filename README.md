@@ -1,27 +1,22 @@
-本项目工程量较大，也欢迎其他开发者一起创建项目
+## 如何使用
 
-## 创建目的
-
-促进中医药信息化发展。由于缺少政策搜索引擎，在查找中医药相关政策有时非常麻烦。故想创建一个方便中医药院校广大师生、中医药从政人员以及中医药爱好者使用的搜索引擎。
-
-## 项目优点
-
-爬虫时可默认将爬虫数据导入到 Elasticsearch 中。如果检测没有连接到 Elasticsearch 或配置不正确，则不会将数据导入到 ES 中。你也可通过加`-O`参数将爬取内容导出为指定目录的`json`文件。
-
-## 如何执行此仓库
-
-- 用`conda`或`virtualenv`创建虚拟环境。
+- 按照官方教程安装 [pdm](https://pdm.fming.dev/)， 使用pdm管理python包是因为python的原生包管理和Node相比实在是灾难，输出的`requirements.txt`有大堆普通开发者或使用者不想关注的细节（包），无法分清包依赖关系
 - `git clone`下载仓库内容
-- 运行`pip install -r requirements.txt`安装所有依赖包
-- （可选）如果需要爬虫时自动将数据存储到后台的数据库，在`README.md`同层目录创建`.env`文件，输入类似如下内容
+- 在仓库根目录执行`pdm install`
+- 安装过程中，可以从Docker的Elasticsearch容器中将`.crt`文件复制到本仓库中
+- （可选）如果需要爬虫时自动将数据存储到后台的数据库，在`README.md`同层目录创建`.env`文件，配置如下内容
 
   ```
-  USERNAME=ELASTICSEARCH_CHANGEME
-  PASSWORD=PASSWORD_CHANGEME
+  # change the following "CHANGEME" to real params
+  USERNAME=CHANGEME
+  PASSWORD=CHANGEME
+
   HOST=localhost
   PORT=9200
-  URL=${HOST}:${PORT}
-  ES_INDEX=INDEX_CHANGEME
+  URL=https://${HOST}:${PORT}
+
+  ES_INDEX=CHANGEME
+  CERT="ca.crt"
   ```
 
 ### 后台定时爬虫
@@ -52,14 +47,14 @@
 
 ## 网络异常，Console 出现大量报错
 
-如出现大批量诸如 "OSError: [Errno 101] Network is unreachable" 之类的错误，静等 1~2 分钟，等错误所有都跳过即可。在不用“梯子”的情况下，`fake-useragent`无法访问 `w3schools`, `heroku` 之类的数据源，且会多次重试链接。虽然无法使用随机 UA，已设置了默认的 UA，错误不用理会。
+如出现大批量诸如 "OSError: [Error 101] Network is unreachable" 之类的错误，静等 1~2 分钟，等错误所有都跳过即可。在不用“梯子”的情况下，`fake-useragent`无法访问 `w3schools`, `heroku` 之类的数据源，且会多次重试链接。虽然无法使用随机 UA，已设置了默认的 UA，错误不用理会。
 
 ## 注意事项
 
 1. **建议**熟悉 scrapy 库（可参照[scrapy 文档](https://docs.scrapy.org/en/latest/intro/tutorial.html)），并使用[scrapy shell](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data)协助调试（记得要修改 Shell 的 User-Agent）。
 2. 用 scrapy 库时记得要用 virtualenv 或 conda 等创建虚拟环境
 3. 涉及正则部分可阅读 [learn-regex-zh](https://github.com/cdoco/learn-regex-zh)，并借助诸如 [regex101](https://regex101.com/)、[scrapy command line](https://docs.scrapy.org/en/latest/intro/tutorial.html#extracting-data) 工具来辅助获取内容
-4. 如何将`\uxxxx`格式代码转换为对应的汉字：安装`jq`，并执行诸如`cat in.json | jq > out.json`代码。另外，强烈推荐学一学 jq， 该[Tutorial](https://stedolan.github.io/jq/tutorial/)10 分钟。jq 能解决非常多常见的 JSON 转换问题，实属 JSON 利器
+4. 如何将`\uXXXX`格式代码转换为对应的汉字：安装`jq`，并执行诸如`cat in.json | jq > out.json`代码。另外，强烈推荐学一学 jq， 该[Tutorial](https://stedolan.github.io/jq/tutorial/)10 分钟。jq 能解决非常多常见的 JSON 转换问题，实属 JSON 利器
 5. 本仓库 python 的`linter`和`formatter`分别使用了`flake8`和`black`
 
 ## 爬虫目录

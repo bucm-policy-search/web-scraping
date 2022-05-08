@@ -1,0 +1,85 @@
+Adding packages to default dependencies: gerapy-auto-extractor
+Resolving: new pin python >=3.9
+Resolving: new pin gerapy-auto-extractor 0.2.1
+Resolving: new pin black 22.3.0
+Resolving: new pin elasticsearch 8.2.0
+Resolving: new pin flake8 4.0.1
+Resolving: new pin python-dotenv 0.20.0
+Resolving: new pin schedule 1.1.0
+Resolving: new pin scrapy 2.6.1
+Resolving: new pin setuptools 62.1.0
+Resolving: new pin tldextract 3.3.0
+Resolving: new pin click 8.1.3
+Resolving: new pin cryptography 37.0.2
+Resolving: new pin cssselect 1.1.0
+Resolving: new pin dateparser 1.1.1
+Resolving: new pin distance 0.1.3
+Resolving: new pin elastic-transport 8.1.2
+Resolving: new pin environs 9.5.0
+Resolving: new pin itemadapter 0.5.0
+Resolving: new pin itemloaders 1.0.4
+Resolving: new pin joblib 1.1.0
+Resolving: new pin loguru 0.6.0
+Resolving: new pin lxml 4.8.0
+Resolving: new pin mccabe 0.6.1
+Resolving: new pin mypy-extensions 0.4.3
+Resolving: new pin numpy 1.22.3
+Resolving: new pin parsel 1.6.0
+Resolving: new pin pathspec 0.9.0
+Resolving: new pin platformdirs 2.5.2
+Resolving: new pin protego 0.2.1
+Resolving: new pin pycodestyle 2.8.0
+Resolving: new pin pydispatcher 2.0.5
+Resolving: new pin pyflakes 2.4.0
+Resolving: new pin pyopenssl 22.0.0
+Resolving: new pin pypydispatcher 2.1.2
+Resolving: new pin queuelib 1.6.2
+Resolving: new pin scikit-learn 1.0.2
+Resolving: new pin service-identity 21.1.0
+Resolving: new pin tomli 2.0.1
+Resolving: new pin twisted 22.4.0
+Resolving: new pin typing-extensions 4.2.0
+Resolving: new pin w3lib 1.22.0
+Resolving: new pin zope.interface 5.4.0
+Resolving: new pin certifi 2021.10.8
+Resolving: new pin idna 3.3
+Resolving: new pin pyasn1 0.4.8
+Resolving: new pin pyasn1-modules 0.2.8
+Resolving: new pin python-dateutil 2.8.2
+Resolving: new pin pytz 2022.1
+Resolving: new pin tzlocal 4.2
+Resolving: new pin attrs 21.4.0
+Resolving: new pin automat 20.2.0
+Resolving: new pin cffi 1.15.0
+Resolving: new pin colorama 0.4.4
+Resolving: new pin constantly 15.1.0
+Resolving: new pin filelock 3.6.0
+Resolving: new pin hyperlink 21.0.0
+Resolving: new pin incremental 21.3.0
+Resolving: new pin jmespath 1.0.0
+Resolving: new pin marshmallow 3.15.0
+Resolving: new pin regex 2022.3.2
+Resolving: new pin requests 2.27.1
+Resolving: new pin requests-file 1.5.1
+Resolving: new pin scipy 1.6.1
+Resolving: new pin six 1.16.0
+Resolving: new pin threadpoolctl 3.1.0
+Resolving: new pin twisted-iocpsupport 1.0.2
+Resolving: new pin urllib3 1.26.9
+Resolving: new pin win32-setctime 1.1.0
+Resolving: new pin packaging 21.3
+Resolving: new pin pycparser 2.21
+Resolving: new pin pytz-deprecation-shim 0.1.0.post0
+Resolving: new pin tzdata 2022.1
+Resolving: new pin charset-normalizer 2.0.12
+Resolving: new pin pyparsing 3.0.8
+🔒 Lock successful
+Changes are written to pdm.lock.
+Changes are written to pyproject.toml.
+Synchronizing working set with lock file: 1 to add, 0 to update, 0 to remove
+
+Install scipy 1.6.1 failed
+  Retry failed jobs
+Install scipy 1.6.1 failed
+
+ERRORS:

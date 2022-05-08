@@ -25,19 +25,27 @@ class ElasticSearchPipeline:
 
         USERNAME = os.environ.get("USERNAME", False)
         PASSWORD = os.environ.get("PASSWORD", False)
-        URL = os.environ.get("URL", False)
+        ES_URL = os.environ.get("ES_URL", False)
+        CERT = os.environ.get("CERT", False)
 
-        if not (USERNAME and PASSWORD and URL):
+        if not (USERNAME and PASSWORD and URL and CERT):
             self.es_connected = False
         else:
-            # 详情参考官方文档 https://elasticsearch-py.readthedocs.io/en/7.x/
+            # 详情参考官方文档
+            # https://www.elastic.co/guide/en/elasticsearch/client/python-api/8.2/connecting.html
+            # Or
+            # https://elasticsearch-py.readthedocs.io/en/v8.2.0/
             try:
-                self.es = Elasticsearch(
-                    ["http://{}:{}@{}/".format(USERNAME, PASSWORD, URL)]
-                )
-                logging.debug("ElasticSearch connected")
+                # Create the client instance
 
-                INDEX = os.environ.get("ES_INDEX", "changeme")
+                self.es = Elasticsearch(
+                    ES_URL,
+                    ca_certs=CERT,
+                    basic_auth=(USERNAME, PASSWORD),
+                )
+                logging.debug("ElasticSearch Connected")
+
+                INDEX = os.environ.get("ES_INDEX", "policy")
 
                 self.es.search(index=INDEX, filter_path=["hits.total.value"])
             except Exception:
